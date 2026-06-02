@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+  <title>INICIO | NovaMente</title>
+</head>
+<body>
+  <div class="site">
+    <nav class="nav">
+      <span class="nav-logo">NovaMente</span>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-nosotros.html">Sobre nosotros</a>
+        <a href="donar.html">Donar</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="nav-right">
+        <button class="nav-btn">Apoyanos</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menú mobile -->
+    <div class="nav-menu-mobile" id="nav-menu-mobile">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-nosotros.html">Sobre nosotros</a>
+      <a href="donar.html">Donar</a>
+      <a href="contacto.html">Contacto</a>
+      <button class="nav-btn" style="width:100%; margin-top: 8px;">Apoyanos</button>
+    </div>
+
+    <section class="intro">
+      <p class="title">Vivís conectado a todo,</p>
+      <p class="title-italic">pero desconectado de vos.</p>
+      <p class="subtitle">La sobreinformación y desinformación de las redes afecta tu mente de formas que quizás no notás. NovaMente te acompaña a entender lo que pasa adentro.</p>
+      <button class="cta-btn">¿Sabés lo que pasa en tu mente?</button>
+      <img
+        class="intro__imagen"
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
+        alt="Jóvenes conectados pero desconectados de sí mismos"
+      />
+      <div class="cards">
+        <div class="card">
+            <img class="card__imagen" src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600&q=80" alt="Joven con ansiedad"/>
+            <p class="card-title">Ansiedad y estrés</p>
+            <p class="card-desc">Entendé qué pasa cuando todo se siente demasiado y no sabés por qué.</p>
+        </div>
+        <div class="card">
+            <img class="card__imagen" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Uso de redes sociales"/>
+            <p class="card-title">Redes sociales</p>
+            <p class="card-desc">Cómo el scroll diario afecta tu bienestar emocional sin que lo notes.</p>
+        </div>
+        <div class="card">
+            <img class="card__imagen" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Alimentación y bienestar"/>
+            <p class="card-title">Trastornos alimentarios</p>
+            <p class="card-desc">La desinformación sobre alimentación e imagen corporal tiene un impacto real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="divider"></div> -->
+
+    <section class="mundo">
+      <p class="mundo-label">El mundo de hoy</p>
+      <p class="mundo-title">Nunca estuvimos tan informados.<br>Nunca estuvimos tan confundidos.</p>
+      <p class="mundo-sub">Las redes sociales generan un flujo constante de contenido sobre cuerpo, éxito, alimentación y felicidad que muchas veces es contradictorio o directamente dañino.</p>
+      <div class="mundo-stats">
+        <div class="stat">
+          <p class="stat-num">50%</p>
+          <p class="stat-desc">de los trastornos mentales comienzan antes de los 14 años</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">11 años</p>
+          <p class="stat-desc">es el promedio entre los primeros síntomas y el primer tratamiento</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">+70%</p>
+          <p class="stat-desc">de jóvenes reportan ansiedad relacionada al uso de redes sociales</p>
+        </div>
+      </div>
+      <div class="mundo-items">
+        <div class="mundo-item">
+          <div>
+            <p class="mundo-item-title">Estándares irreales de imagen y éxito</p>
+            <p class="mundo-item-desc">El contenido viral impone modelos de cuerpo, vida y felicidad que generan comparación constante y baja autoestima.</p>
+          </div>
+        </div>
+        <div class="mundo-item">
+          <div>
+            <p class="mundo-item-title">Desinformación sobre alimentación</p>
+            <p class="mundo-item-desc">Dietas virales, tendencias sin respaldo científico y contenido que glorifica hábitos dañinos circulan sin control.</p>
+          </div>
+        </div>
+        <div class="mundo-item">
+          <div>
+            <p class="mundo-item-title">No saber qué sentís ni por qué</p>
+            <p class="mundo-item-desc">La saturación de información hace difícil reconocer las propias emociones y entender su origen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="divider"></div> -->
+
+    <section class="herramientas">
+      <p class="section-label">Herramientas</p>
+      <p class="section-title">Recursos gratuitos para cuidarte mejor</p>
+      <p class="section-sub">No hace falta tener todo claro para empezar. Acá encontrás herramientas concretas y accesibles para cualquier joven.</p>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <span class="tool-badge">Ansiedad</span>
+          <p class="tool-title">Guía para entender tu ansiedad</p>
+          <p class="tool-desc">Un recurso simple para identificar qué dispara tu ansiedad y cómo empezar a gestionarla.</p>
+          <a class="tool-link" href="#">Descargar gratis</a>
+        </div>
+        <div class="tool-card">
+          <span class="tool-badge">Redes sociales</span>
+          <p class="tool-title">Detox digital: por dónde empezar</p>
+          <p class="tool-desc">Pasos concretos para tener una relación más sana con el contenido digital sin desconectarte del todo.</p>
+          <a class="tool-link" href="#">Descargar gratis</a>
+        </div>
+        <div class="tool-card">
+          <span class="tool-badge">Alimentación</span>
+          <p class="tool-title">Cómo identificar desinformación nutricional</p>
+          <p class="tool-desc">Aprende a distinguir contenido confiable de tendencias dañinas sobre alimentación y cuerpo.</p>
+          <a class="tool-link" href="#">Descargar gratis</a>
+        </div>
+        <div class="tool-card">
+          <span class="tool-badge">Para adultos</span>
+          <p class="tool-title">Guía para padres y docentes</p>
+          <p class="tool-desc">Cómo acompañar a jóvenes que atraviesan ansiedad, presión digital o trastornos alimentarios.</p>
+          <a class="tool-link" href="#">Descargar gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-first-column">
+          <p class="footer-brand-name">NovaMente</p>
+          <p class="footer-brand-desc">Ayudamos a jóvenes a reconectar con su bienestar mental en la era digital.</p>
+          <button class="footer-donate-btn">Donar ahora</button>
+        </div>
+        <div>
+          <p class="footer-col-title">INSTITUCIONAL</p>
+          <ul class="footer-links">
+            <li><a href="#">Quiénes somos</a></li>
+            <li><a href="#">Equipo</a></li>
+            <li><a href="#">Transparencia y fondos</a></li>
+            <li><a href="#">Prensa</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">SUMATE</p>
+          <ul class="footer-links">
+            <li><a href="#">Donar</a></li>
+            <li><a href="#">Ser voluntario</a></li>
+            <li><a href="#">Difundir la causa</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">LEGAL</p>
+          <ul class="footer-links">
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; NovaMente 2026. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

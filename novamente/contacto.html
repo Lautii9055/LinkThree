@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+  <title>CONTACTO | NovaMente</title>
+</head>
+<body>
+  <div class="site">
+      <!-- ─── NAV ─── -->
+      <nav class="nav">
+      <span class="nav-logo">NovaMente</span>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-nosotros.html">Sobre nosotros</a>
+        <a href="donar.html">Donar</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="nav-right">
+        <button class="nav-btn">Apoyanos</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menú mobile -->
+    <div class="nav-menu-mobile" id="nav-menu-mobile">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-nosotros.html">Sobre nosotros</a>
+      <a href="donar.html">Donar</a>
+      <a href="contacto.html">Contacto</a>
+      <button class="nav-btn" style="width:100%; margin-top: 8px;">Apoyanos</button>
+    </div>
+
+    <!-- ─── HEADER ─── -->
+    <section class="contacto-header">
+      <p class="section-label">Contacto</p>
+      <h1 class="contacto-header__titulo">¿Hablamos?</h1>
+      <p class="contacto-header__sub">Ya sea que tengas una pregunta, quieras sumarte o simplemente quieras saber más sobre NovaMente — estamos acá.</p>
+    </section>
+
+    <!-- ─── FORMULARIO DE CONTACTO ─── -->
+    <section id="contacto-form" class="contacto-form-section">
+      <div class="contacto-form-section__grid">
+
+        <div class="contacto-form-section__info">
+          <p class="contacto-form-section__label">Escribinos</p>
+          <h2 class="contacto-form-section__titulo">Contanos lo que necesitás</h2>
+          <p class="contacto-form-section__desc">Respondemos todos los mensajes en un plazo de 48 a 72 horas hábiles. Si tu consulta es urgente, podés escribirnos directamente a nuestras redes sociales.</p>
+          <div class="contacto-info-items">
+            <div class="contacto-info-item">
+              <div class="contacto-info-item__icono">✉️</div>
+              <div>
+                <p class="contacto-info-item__label">Email</p>
+                <p class="contacto-info-item__valor">hola@novamente.org</p>
+              </div>
+            </div>
+            <div class="contacto-info-item">
+              <div class="contacto-info-item__icono">🌍</div>
+              <div>
+                <p class="contacto-info-item__label">Alcance</p>
+                <p class="contacto-info-item__valor">Global — operamos en línea</p>
+              </div>
+            </div>
+            <div class="contacto-info-item">
+              <div class="contacto-info-item__icono">📱</div>
+              <div>
+                <p class="contacto-info-item__label">Redes sociales</p>
+                <p class="contacto-info-item__valor">@novamente.org</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacto-form-section__form">
+          <div class="form-group">
+            <label class="form-label">Nombre completo</label>
+            <input class="form-input" type="text" placeholder="Tu nombre" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" placeholder="tu@email.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Asunto</label>
+            <select class="form-input form-select">
+              <option value="" disabled selected>Seleccioná un motivo</option>
+              <option value="consulta">Consulta general</option>
+              <option value="voluntario">Quiero ser voluntario</option>
+              <option value="prensa">Consulta de prensa</option>
+              <option value="donacion">Sobre donaciones</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-input form-textarea" placeholder="Contanos en qué podemos ayudarte..."></textarea>
+          </div>
+          <button class="form-btn" type="button" id="btn-contacto">Enviar mensaje</button>
+          <p class="form-nota">Al enviar este formulario aceptás nuestra <a href="#">política de privacidad</a>.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── SUMATE COMO VOLUNTARIO ─── -->
+    <section class="voluntario-section">
+      <div class="voluntario-section__header">
+        <p class="section-label">Sumate</p>
+        <h2 class="voluntario-section__titulo">¿Querés ser parte de NovaMente?</h2>
+        <p class="voluntario-section__sub">No hace falta ser psicólogo para ayudar. Hay muchas formas de sumar tu talento a la causa.</p>
+      </div>
+
+
+      <img
+        class="sobre__imagen-equipo"
+        src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1200&q=80"
+        alt="Voluntarios trabajando juntos"
+      />
+      <div class="voluntario-grid">
+        <div class="voluntario-card">
+          <p class="voluntario-card__rol">Psicólogos y profesionales de salud mental</p>
+          <p class="voluntario-card__desc">Validar contenido, dar webinars, acompañar a la comunidad con criterio profesional.</p>
+        </div>
+        <div class="voluntario-card">
+          <p class="voluntario-card__rol">Diseñadores y creativos</p>
+          <p class="voluntario-card__desc">Crear piezas visuales, infografías y materiales que hagan el contenido más accesible y atractivo.</p>
+        </div>
+        <div class="voluntario-card">
+          <p class="voluntario-card__rol">Comunicadores y community managers</p>
+          <p class="voluntario-card__desc">Gestionar redes, redactar contenido y construir la comunidad digital de NovaMente.</p>
+        </div>
+        <div class="voluntario-card">
+          <p class="voluntario-card__rol">Desarrolladores web</p>
+          <p class="voluntario-card__desc">Mantener y mejorar la plataforma digital para que llegue a cada vez más jóvenes.</p>
+        </div>
+        <div class="voluntario-card">
+          <p class="voluntario-card__rol">Docentes y educadores</p>
+          <p class="voluntario-card__desc">Llevar los talleres y programas de NovaMente a escuelas y espacios educativos.</p>
+        </div>
+        <div class="voluntario-card">
+          <p class="voluntario-card__rol">Otro talento</p>
+          <p class="voluntario-card__desc">¿Tenés algo para aportar que no está en esta lista? Escribinos, siempre hay lugar.</p>
+        </div>
+      </div>
+
+      <div class="voluntario-cta">
+        <p class="voluntario-cta__texto">¿Te interesa sumarte? Completá el formulario de arriba seleccionando "Quiero ser voluntario" y contanos un poco sobre vos.</p>
+        <button class="voluntario-cta__btn" id="btn-voluntario">Quiero ser voluntario</button>
+      </div>
+    </section>
+
+    <!-- ─── PRENSA ─── -->
+    <section class="prensa-section">
+      <div class="prensa-section__grid">
+        <div class="prensa-section__info">
+          <p class="section-label" style="color: var(--color-menta-200);">Prensa</p>
+          <h2 class="prensa-section__titulo">¿Sos periodista o trabajás en medios?</h2>
+          <p class="prensa-section__desc">Si querés cubrir NovaMente, entrevistar a nuestro equipo o acceder a materiales de prensa, escribinos directamente. Respondemos consultas de medios con prioridad.</p>
+          <div class="prensa-contacto">
+            <p class="prensa-contacto__label">Contacto de prensa</p>
+            <p class="prensa-contacto__email">prensa@novamente.org</p>
+          </div>
+        </div>
+        <div class="prensa-section__recursos">
+          <p class="prensa-recursos__titulo">Kit de prensa disponible</p>
+          <div class="prensa-recursos__lista">
+            <div class="prensa-recurso">
+              <div>
+                <p class="prensa-recurso__nombre">Dossier institucional</p>
+                <p class="prensa-recurso__desc">Historia, misión, datos de impacto y equipo</p>
+              </div>
+              <a class="prensa-recurso__link" href="#">Descargar</a>
+            </div>
+            <div class="prensa-recurso">
+              <div>
+                <p class="prensa-recurso__nombre">Logos e identidad visual</p>
+                <p class="prensa-recurso__desc">Archivos en alta resolución para medios</p>
+              </div>
+              <a class="prensa-recurso__link" href="#">Descargar</a>
+            </div>
+            <div class="prensa-recurso">
+              <div>
+                <p class="prensa-recurso__nombre">Datos e investigación</p>
+                <p class="prensa-recurso__desc">Estadísticas y fuentes sobre salud mental joven</p>
+              </div>
+              <a class="prensa-recurso__link" href="#">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-first-column">
+          <p class="footer-brand-name">NovaMente</p>
+          <p class="footer-brand-desc">Ayudamos a jóvenes a reconectar con su bienestar mental en la era digital.</p>
+          <button class="footer-donate-btn">Donar ahora</button>
+        </div>
+        <div>
+          <p class="footer-col-title">INSTITUCIONAL</p>
+          <ul class="footer-links">
+            <li><a href="#">Quiénes somos</a></li>
+            <li><a href="#">Equipo</a></li>
+            <li><a href="#">Transparencia y fondos</a></li>
+            <li><a href="#">Prensa</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">SUMATE</p>
+          <ul class="footer-links">
+            <li><a href="#">Donar</a></li>
+            <li><a href="#">Ser voluntario</a></li>
+            <li><a href="#">Difundir la causa</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">LEGAL</p>
+          <ul class="footer-links">
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; NovaMente 2026. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
