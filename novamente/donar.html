@@ -1,103 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilos.css">
-  <title>DONAR | NovaMente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>DONAR | NovaMente</title>
 </head>
+
 <body>
     <div class="site">
         <!-- ─── NAV ─── -->
         <nav class="nav">
-        <span class="nav-logo">NovaMente</span>
-        <div class="nav-links">
+            <span class="nav-logo">NovaMente</span>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="sobre-nosotros.html">Sobre nosotros</a>
+                <a href="donar.html">Donar</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="nav-right">
+                <button class="nav-btn">Apoyanos</button>
+                <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú mobile -->
+        <div class="nav-menu-mobile" id="nav-menu-mobile">
             <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
             <a href="sobre-nosotros.html">Sobre nosotros</a>
             <a href="donar.html">Donar</a>
             <a href="contacto.html">Contacto</a>
-        </div>
-        <div class="nav-right">
-            <button class="nav-btn">Apoyanos</button>
-            <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-            </button>
-        </div>
-        </nav>
-
-        <!-- Menú mobile -->
-        <div class="nav-menu-mobile" id="nav-menu-mobile">
-        <a href="index.html">Inicio</a>
-        <a href="proyectos.html">Proyectos</a>
-        <a href="sobre-nosotros.html">Sobre nosotros</a>
-        <a href="donar.html">Donar</a>
-        <a href="contacto.html">Contacto</a>
-        <button class="nav-btn" style="width:100%; margin-top: 8px;">Apoyanos</button>
+            <button class="nav-btn" style="width:100%; margin-top: 8px;">Apoyanos</button>
         </div>
 
         <section class="comunidad">
             <p class="section-label">Comunidad</p>
             <p class="section-title">No estás solo/a en esto</p>
-            <p class="section-sub">Jóvenes de todo el mundo comparten lo que sienten. Leer sus experiencias puede ser el primer paso para entender las tuyas.</p>
+            <p class="section-sub">Jóvenes de todo el mundo comparten lo que sienten. Leer sus experiencias puede ser el
+                primer paso para entender las tuyas.</p>
             <!-- DATOS INVENTADOS -->
             <div class="stories">
                 <div class="story">
-                <p class="story-quote">Siempre pensé que lo que sentía era normal. Hasta que empecé a entender que la ansiedad tiene nombre y que no tenía que vivirla sola.</p>
-                <div class="story-author">
-                    <div class="story-avatar">MR</div>
-                    <div>
-                    <p class="story-name">Martina R.</p>
-                    <p class="story-age">19 años · Buenos Aires</p>
+                    <p class="story-quote">Siempre pensé que lo que sentía era normal. Hasta que empecé a entender que
+                        la ansiedad tiene nombre y que no tenía que vivirla sola.</p>
+                    <div class="story-author">
+                        <div class="story-avatar">MR</div>
+                        <div>
+                            <p class="story-name">Martina R.</p>
+                            <p class="story-age">19 años · Buenos Aires</p>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="story">
-                <p class="story-quote">Pasé meses comparándome con lo que veía en TikTok. No me daba cuenta del daño que me estaba haciendo hasta que alguien me lo mostró.</p>
-                <div class="story-author">
-                    <div class="story-avatar">LS</div>
-                    <div>
-                    <p class="story-name">Lucas S.</p>
-                    <p class="story-age">22 años · Ciudad de México</p>
+                    <p class="story-quote">Pasé meses comparándome con lo que veía en TikTok. No me daba cuenta del daño
+                        que me estaba haciendo hasta que alguien me lo mostró.</p>
+                    <div class="story-author">
+                        <div class="story-avatar">LS</div>
+                        <div>
+                            <p class="story-name">Lucas S.</p>
+                            <p class="story-age">22 años · Ciudad de México</p>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             <!-- TERMINAN DATOS INVENTADOS -->
 
             <div class="comunidad-cta">
                 <p class="comunidad-cta-title">Unite a la comunidad NovaMente</p>
-                <p class="comunidad-cta-sub">Un espacio seguro donde compartir, aprender y acompañarse entre jóvenes.</p>
+                <p class="comunidad-cta-sub">Un espacio seguro donde compartir, aprender y acompañarse entre jóvenes.
+                </p>
                 <button class="comunidad-cta-btn">Quiero sumarme</button>
             </div>
         </section>
 
         <section class="apoyanos">
             <p class="section-label">Apoyanos</p>
-            <p class="section-title">Ser parte del cambio<br><span class="section-title-italic">está en tus manos</span></p>
-            <p class="section-sub">NovaMente es gratuita para todos los jóvenes. Para que siga así, necesitamos tu apoyo.</p>
+            <p class="section-title">Ser parte del cambio<br><span class="section-title-italic">está en tus manos</span>
+            </p>
+            <p class="section-sub">NovaMente es gratuita para todos los jóvenes. Para que siga así, necesitamos tu
+                apoyo.</p>
             <div class="apoyo-grid">
                 <div class="apoyo-card">
-                <p class="apoyo-title">Ser voluntario</p>
-                <p class="apoyo-desc">Psicólogos, diseñadores, comunicadores — tu talento puede hacer la diferencia.</p>
-                <button class="apoyo-btn-outline">Quiero sumarme</button>
+                    <p class="apoyo-title">Ser voluntario</p>
+                    <p class="apoyo-desc">Psicólogos, diseñadores, comunicadores — tu talento puede hacer la diferencia.
+                    </p>
+                    <button class="apoyo-btn-outline">Quiero sumarme</button>
                 </div>
                 <div class="apoyo-card">
-                <p class="apoyo-title">Donar</p>
-                <p class="apoyo-desc">Tu contribución permite que más jóvenes accedan a recursos de salud mental gratuitos.</p>
-                <button class="apoyo-btn">Donar ahora</button>
+                    <p class="apoyo-title">Donar</p>
+                    <p class="apoyo-desc">Tu contribución permite que más jóvenes accedan a recursos de salud mental
+                        gratuitos.</p>
+                    <button class="apoyo-btn">Donar ahora</button>
                 </div>
                 <div class="apoyo-card">
-                <p class="apoyo-title">Difundir</p>
-                <p class="apoyo-desc">Compartir NovaMente con alguien que lo necesita ya es un acto de cuidado.</p>
-                <button class="apoyo-btn-outline">Compartir</button>
+                    <p class="apoyo-title">Difundir</p>
+                    <p class="apoyo-desc">Compartir NovaMente con alguien que lo necesita ya es un acto de cuidado.</p>
+                    <button class="apoyo-btn-outline">Compartir</button>
                 </div>
             </div>
             <div class="donacion-highlight">
                 <p class="donacion-title">Cada aporte cuenta</p>
-                <p class="donacion-sub">Con tan solo el valor de un café al mes ayudás a que NovaMente llegue a más jóvenes en todo el mundo.</p>
+                <p class="donacion-sub">Con tan solo el valor de un café al mes ayudás a que NovaMente llegue a más
+                    jóvenes en todo el mundo.</p>
                 <button class="donacion-btn">Donar ahora</button>
             </div>
         </section>
@@ -106,48 +117,50 @@
         <footer class="footer">
             <div class="footer-top">
                 <div class="footer-first-column">
-                <p class="footer-brand-name">NovaMente</p>
-                <p class="footer-brand-desc">Ayudamos a jóvenes a reconectar con su bienestar mental en la era digital.</p>
-                <button class="footer-donate-btn">Donar ahora</button>
+                    <p class="footer-brand-name">NovaMente</p>
+                    <p class="footer-brand-desc">Ayudamos a jóvenes a reconectar con su bienestar mental en la era
+                        digital.</p>
+                    <button class="footer-donate-btn">Donar ahora</button>
                 </div>
                 <div>
-                <p class="footer-col-title">INSTITUCIONAL</p>
-                <ul class="footer-links">
-                    <li><a href="#">Quiénes somos</a></li>
-                    <li><a href="#">Equipo</a></li>
-                    <li><a href="#">Transparencia y fondos</a></li>
-                    <li><a href="#">Prensa</a></li>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-                </ul>
+                    <p class="footer-col-title">INSTITUCIONAL</p>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Equipo</a></li>
+                        <li><a href="#">Transparencia y fondos</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                    </ul>
                 </div>
                 <div>
-                <p class="footer-col-title">SUMATE</p>
-                <ul class="footer-links">
-                    <li><a href="#">Donar</a></li>
-                    <li><a href="#">Ser voluntario</a></li>
-                    <li><a href="#">Difundir la causa</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
+                    <p class="footer-col-title">SUMATE</p>
+                    <ul class="footer-links">
+                        <li><a href="#">Donar</a></li>
+                        <li><a href="#">Ser voluntario</a></li>
+                        <li><a href="#">Difundir la causa</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
                 </div>
                 <div>
-                <p class="footer-col-title">LEGAL</p>
-                <ul class="footer-links">
-                    <li><a href="#">Política de privacidad</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
-                    <li><a href="#">Cookies</a></li>
-                </ul>
+                    <p class="footer-col-title">LEGAL</p>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p class="footer-copy">&copy; NovaMente 2026. Todos los derechos reservados.</p>
                 <div class="footer-legal">
-                <a href="#">Privacidad</a>
-                <a href="#">Términos</a>
-                <a href="#">Cookies</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
+                    <a href="#">Cookies</a>
                 </div>
             </div>
         </footer>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -118,7 +118,7 @@ FUNCTIONES (bloques de código reutilizables)
 const btnVoluntario = document.getElementById('btn-voluntario');
 
 if (btnVoluntario) {
-  btnVoluntario.addEventListener('click', function(e) {
+  btnVoluntario.addEventListener('click', function (e) {
     e.preventDefault();
     abrirModalVoluntario();
   });
@@ -132,7 +132,7 @@ if (btnVoluntario) {
 const btnContacto = document.getElementById('btn-contacto');
 
 if (btnContacto) {
-  btnContacto.addEventListener('click', function() {
+  btnContacto.addEventListener('click', function () {
 
     const nombre = document.querySelector('input[type="text"]');
     const email = document.querySelector('input[type="email"]');
@@ -143,14 +143,14 @@ if (btnContacto) {
 
     // Limpia errores previos
     const erroresPrevios = document.querySelectorAll('.form-error');
-    erroresPrevios.forEach(function(error) {
+    erroresPrevios.forEach(function (error) {
       error.remove();
     });
 
     // Valida cada campo
     const campos = [nombre, email, asunto, mensaje];
 
-    campos.forEach(function(campo) {
+    campos.forEach(function (campo) {
       if (!campo) return;
 
       if (campo.value.trim() === '' || campo.value === '') {
@@ -194,7 +194,7 @@ if (btnContacto) {
       btnContacto.style.background = 'var(--color-menta-600)';
       btnContacto.disabled = true;
 
-      setTimeout(function() {
+      setTimeout(function () {
         btnContacto.textContent = 'Enviar mensaje';
         btnContacto.style.background = '';
         btnContacto.disabled = false;
@@ -212,7 +212,7 @@ function animarContador(elemento, valorFinal, duracion, sufijo) {
   let inicio = 0;
   const incremento = valorFinal / (duracion / 13);
 
-  const intervalo = setInterval(function() {
+  const intervalo = setInterval(function () {
     inicio += incremento;
 
     if (inicio >= valorFinal) {
@@ -228,8 +228,8 @@ const stats = document.querySelectorAll('.stat-num');
 let contadoresActivados = false;
 
 if (stats.length > 0) {
-  const observadorStats = new IntersectionObserver(function(entradas) {
-    entradas.forEach(function(entrada) {
+  const observadorStats = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (entrada) {
       if (entrada.isIntersecting && !contadoresActivados) {
         contadoresActivados = true;
 
@@ -237,7 +237,7 @@ if (stats.length > 0) {
 
         if (stats[1]) {
           let cont = 0;
-          const intervalo2 = setInterval(function() {
+          const intervalo2 = setInterval(function () {
             cont++;
             stats[1].textContent = cont + ' años';
             if (cont >= 11) clearInterval(intervalo2);
@@ -256,24 +256,24 @@ if (stats.length > 0) {
 /* ─────────────────────────────────────────
    EXPANDIBLE AL CLICKEAR IMAGEN DE PROYECTO
 ───────────────────────────────────────── */
- 
+
 const imagenesProyecto = document.querySelectorAll('.proyecto-card__imagen');
- 
-imagenesProyecto.forEach(function(imagen) {
-  imagen.addEventListener('click', function() {
- 
+
+imagenesProyecto.forEach(function (imagen) {
+  imagen.addEventListener('click', function () {
+
     const card = imagen.closest('.proyecto-card');
     const detalle = card.querySelector('.proyecto-card__detalle');
- 
+
     if (!detalle) return;
- 
+
     const estaAbierto = detalle.classList.contains('proyecto-card__detalle--visible');
- 
+
     // Cerrar todos los detalles abiertos
-    document.querySelectorAll('.proyecto-card__detalle--visible').forEach(function(d) {
+    document.querySelectorAll('.proyecto-card__detalle--visible').forEach(function (d) {
       d.classList.remove('proyecto-card__detalle--visible');
     });
- 
+
     // Si no estaba abierto, abrir este
     if (!estaAbierto) {
       detalle.classList.add('proyecto-card__detalle--visible');
@@ -286,29 +286,29 @@ imagenesProyecto.forEach(function(imagen) {
 /* ─────────────────────────────────────────
    MENÚ HAMBURGUESA
 ───────────────────────────────────────── */
- 
+
 const hamburger = document.getElementById('nav-hamburger');
 const menuMobile = document.getElementById('nav-menu-mobile');
- 
+
 if (hamburger && menuMobile) {
- 
+
   // Abrir / cerrar al clickear el botón
-  hamburger.addEventListener('click', function() {
+  hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('abierto');
     menuMobile.classList.toggle('abierto');
   });
- 
+
   // Cerrar al clickear cualquier link del menú
   const linksMobile = menuMobile.querySelectorAll('a');
-  linksMobile.forEach(function(link) {
-    link.addEventListener('click', function() {
+  linksMobile.forEach(function (link) {
+    link.addEventListener('click', function () {
       hamburger.classList.remove('abierto');
       menuMobile.classList.remove('abierto');
     });
   });
- 
+
   // Cerrar al clickear fuera del menú
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     const clickDentroNav = e.target.closest('.nav');
     const clickDentroMenu = e.target.closest('.nav-menu-mobile');
 
@@ -447,10 +447,10 @@ const botonesQuieroSumarme = document.querySelectorAll('.apoyo-btn-outline');
 
 function limpiarErroresModal(modal) {
   if (!modal) return;
-  modal.querySelectorAll('.form-error').forEach(function(error) {
+  modal.querySelectorAll('.form-error').forEach(function (error) {
     error.remove();
   });
-  modal.querySelectorAll('.form-input').forEach(function(input) {
+  modal.querySelectorAll('.form-input').forEach(function (input) {
     input.style.borderColor = '';
   });
 }
@@ -561,10 +561,10 @@ function cerrarModalDonacion() {
     modalDonacion.classList.remove('activo');
     document.body.style.overflow = '';
     // Limpiar errores
-    document.querySelectorAll('.form-error').forEach(function(error) {
+    document.querySelectorAll('.form-error').forEach(function (error) {
       error.remove();
     });
-    document.querySelectorAll('.form-input').forEach(function(input) {
+    document.querySelectorAll('.form-input').forEach(function (input) {
       input.style.borderColor = '';
     });
   }
@@ -576,7 +576,7 @@ if (modalClose) {
 }
 
 if (modalDonacion) {
-  modalDonacion.addEventListener('click', function(e) {
+  modalDonacion.addEventListener('click', function (e) {
     if (e.target === modalDonacion) {
       cerrarModalDonacion();
     }
@@ -589,7 +589,7 @@ if (modalVoluntarioClose) {
 }
 
 if (modalVoluntario) {
-  modalVoluntario.addEventListener('click', function(e) {
+  modalVoluntario.addEventListener('click', function (e) {
     if (e.target === modalVoluntario) {
       cerrarModalVoluntario();
     }
@@ -597,8 +597,8 @@ if (modalVoluntario) {
 }
 
 // Event listeners para abrir el modal al hacer click en botones "Donar ahora"
-botonesDonarAhora.forEach(function(boton) {
-  boton.addEventListener('click', function(e) {
+botonesDonarAhora.forEach(function (boton) {
+  boton.addEventListener('click', function (e) {
     e.preventDefault();
     abrirModalDonacion();
   });
@@ -607,25 +607,25 @@ botonesDonarAhora.forEach(function(boton) {
 // Footer: abrir modal de donación o ir al formulario de contacto
 const footerLinks = document.querySelectorAll('.footer-links a');
 
-footerLinks.forEach(function(link) {
+footerLinks.forEach(function (link) {
   const texto = link.textContent.trim().toLowerCase();
 
   if (texto === 'donar') {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
       abrirModalDonacion();
     });
   }
 
   if (texto === 'ser voluntario') {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
       abrirModalVoluntario();
     });
   }
 
   if (texto === 'contacto') {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
 
       const contactoSection = document.getElementById('contacto-form');
@@ -641,16 +641,16 @@ footerLinks.forEach(function(link) {
 });
 
 // Event listeners para abrir el modal al hacer click en botones "Ser voluntario" y "Quiero sumarme"
-botonesVoluntario.forEach(function(boton) {
-  boton.addEventListener('click', function(e) {
+botonesVoluntario.forEach(function (boton) {
+  boton.addEventListener('click', function (e) {
     e.preventDefault();
     abrirModalVoluntario();
   });
 });
 
-botonesQuieroSumarme.forEach(function(boton) {
+botonesQuieroSumarme.forEach(function (boton) {
   if (boton.textContent.trim().toLowerCase() === 'quiero sumarme') {
-    boton.addEventListener('click', function(e) {
+    boton.addEventListener('click', function (e) {
       e.preventDefault();
       abrirModalVoluntario();
     });
@@ -659,7 +659,7 @@ botonesQuieroSumarme.forEach(function(boton) {
 
 // Validación del formulario de donación
 if (btnDonar) {
-  btnDonar.addEventListener('click', function() {
+  btnDonar.addEventListener('click', function () {
     const nombre = document.getElementById('dona-nombre');
     const apellido = document.getElementById('dona-apellido');
     const email = document.getElementById('dona-email');
@@ -675,7 +675,7 @@ if (btnDonar) {
 
     // Limpiar errores previos
     const erroresPrevios = document.querySelectorAll('.form-error');
-    erroresPrevios.forEach(function(error) {
+    erroresPrevios.forEach(function (error) {
       error.remove();
     });
 
@@ -683,7 +683,7 @@ if (btnDonar) {
     const campos = [nombre, apellido, email, tipoDoc, numDoc, fechaNac, paisCelular, celular, monto, moneda];
 
     // Validar cada campo
-    campos.forEach(function(campo) {
+    campos.forEach(function (campo) {
       if (!campo) return;
 
       if (campo.value.trim() === '' || campo.value === '') {
@@ -742,7 +742,7 @@ if (btnDonar) {
       btnDonar.style.background = 'var(--color-menta-600)';
       btnDonar.disabled = true;
 
-      setTimeout(function() {
+      setTimeout(function () {
         btnDonar.textContent = 'Donar ahora';
         btnDonar.style.background = '';
         btnDonar.disabled = false;
@@ -755,7 +755,7 @@ if (btnDonar) {
 
 // Validación del formulario de voluntariado
 if (btnEnviarVoluntario) {
-  btnEnviarVoluntario.addEventListener('click', function() {
+  btnEnviarVoluntario.addEventListener('click', function () {
     const nombre = document.getElementById('voluntario-nombre');
     const apellido = document.getElementById('voluntario-apellido');
     const email = document.getElementById('voluntario-email');
@@ -770,7 +770,7 @@ if (btnEnviarVoluntario) {
 
     const campos = [nombre, apellido, email, area, disponibilidad, ubicacion, mensaje];
 
-    campos.forEach(function(campo) {
+    campos.forEach(function (campo) {
       if (!campo) return;
 
       if (campo.value.trim() === '' || campo.value === '') {
@@ -812,7 +812,7 @@ if (btnEnviarVoluntario) {
       btnEnviarVoluntario.style.background = 'var(--color-menta-600)';
       btnEnviarVoluntario.disabled = true;
 
-      setTimeout(function() {
+      setTimeout(function () {
         btnEnviarVoluntario.textContent = 'Enviar solicitud';
         btnEnviarVoluntario.style.background = '';
         btnEnviarVoluntario.disabled = false;
@@ -825,7 +825,7 @@ if (btnEnviarVoluntario) {
 
 // Permitir Enter para enviar el formulario de donación
 if (formDonacion) {
-  formDonacion.addEventListener('keypress', function(e) {
+  formDonacion.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       e.preventDefault();
       btnDonar.click();
@@ -835,7 +835,7 @@ if (formDonacion) {
 
 // Permitir Enter para enviar el formulario de voluntariado
 if (formVoluntario) {
-  formVoluntario.addEventListener('keypress', function(e) {
+  formVoluntario.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       e.preventDefault();
       btnEnviarVoluntario.click();
