@@ -292,13 +292,13 @@ const menuMobile = document.getElementById('nav-menu-mobile');
 
 if (hamburger && menuMobile) {
 
-  // Abrir / cerrar al clickear el botón
+  // abre y/o cierra al clickear el botón
   hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('abierto');
     menuMobile.classList.toggle('abierto');
   });
 
-  // Cerrar al clickear cualquier link del menú
+  // cierra al clickear cualquier link del menú
   const linksMobile = menuMobile.querySelectorAll('a');
   linksMobile.forEach(function (link) {
     link.addEventListener('click', function () {
@@ -307,7 +307,7 @@ if (hamburger && menuMobile) {
     });
   });
 
-  // Cerrar al clickear fuera del menú
+  // cierra al clickear fuera del menú
   document.addEventListener('click', function (e) {
     const clickDentroNav = e.target.closest('.nav');
     const clickDentroMenu = e.target.closest('.nav-menu-mobile');
@@ -324,7 +324,7 @@ if (hamburger && menuMobile) {
    MODAL FORMULARIO DE DONACIÓN
 ───────────────────────────────────────── */
 function crearModalDonacion() {
-  // Si ya existe, no crear otro
+
   if (document.getElementById('modal-donacion')) return;
 
   const modalHTML = `
@@ -335,6 +335,19 @@ function crearModalDonacion() {
         <div class="modal-header">
           <h2 class="modal-title">Apoyá a NovaMente</h2>
           <p class="modal-subtitle">Tu donación nos ayuda a llegar a más jóvenes con recursos de salud mental.</p>
+          <div class="modal-total">
+            <p class="modal-total-title">Total acumulado de donaciones</p>
+            <div class="modal-total-grid">
+              <div>
+                <p class="modal-total-label">Pesos argentinos (ARS)</p>
+                <p class="modal-total-amount" id="total-donaciones-ars">$ 0,00</p>
+              </div>
+              <div>
+                <p class="modal-total-label">Dólares estadounidenses (USD)</p>
+                <p class="modal-total-amount" id="total-donaciones-usd">US$ 0.00</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <form class="modal-form" id="form-donacion">
@@ -430,14 +443,56 @@ function crearModalDonacion() {
 crearModalDonacion();
 crearModalVoluntario();
 
-// obtiene las referencias del modal de donación
 const modalDonacion = document.getElementById('modal-donacion');
 const modalClose = document.getElementById('modal-close');
 const formDonacion = document.getElementById('form-donacion');
 const btnDonar = document.getElementById('btn-donar');
 const botonesDonarAhora = document.querySelectorAll('.footer-donate-btn, .apoyo-btn, .donacion-btn, .nav-btn');
 
-// obtiene las referencias del modal de voluntariado
+const TOTAL_DONACIONES_KEY = 'novaMenteTotalDonaciones';
+
+function obtenerTotalesDonaciones() {
+  const totalesGuardados = localStorage.getItem(TOTAL_DONACIONES_KEY);
+  if (!totalesGuardados) {
+    return { ars: 0, usd: 0 };
+  }
+
+  try {
+    const parsed = JSON.parse(totalesGuardados);
+    return {
+      ars: parseFloat(parsed.ars) || 0,
+      usd: parseFloat(parsed.usd) || 0,
+    };
+  } catch (e) {
+    return { ars: 0, usd: 0 };
+  }
+}
+
+function guardarTotalesDonaciones(totales) {
+  localStorage.setItem(TOTAL_DONACIONES_KEY, JSON.stringify(totales));
+}
+
+function formatearMonto(valor, moneda) {
+  if (moneda === 'usd') {
+    return 'US$ ' + valor.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  return '$ ' + valor.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function actualizarTotalDonacionesUI() {
+  const totalARS = document.getElementById('total-donaciones-ars');
+  const totalUSD = document.getElementById('total-donaciones-usd');
+  const totales = obtenerTotalesDonaciones();
+
+  if (totalARS) {
+    totalARS.textContent = formatearMonto(totales.ars, 'ars');
+  }
+
+  if (totalUSD) {
+    totalUSD.textContent = formatearMonto(totales.usd, 'usd');
+  }
+}
+
 const modalVoluntario = document.getElementById('modal-voluntario');
 const modalVoluntarioClose = document.getElementById('modal-voluntario-close');
 const formVoluntario = document.getElementById('form-voluntario');
@@ -447,12 +502,32 @@ const botonesQuieroSumarme = document.querySelectorAll('.apoyo-btn-outline');
 
 function limpiarErroresModal(modal) {
   if (!modal) return;
-  modal.querySelectorAll('.form-error').forEach(function (error) {
+  modal.querySelectorAll('.form-error, .form-success').forEach(function (error) {
     error.remove();
   });
   modal.querySelectorAll('.form-input').forEach(function (input) {
     input.style.borderColor = '';
   });
+}
+
+function mostrarMensajeVoluntario(mensaje) {
+  if (!modalVoluntario) return;
+  const mensajeExistente = modalVoluntario.querySelector('.form-success');
+  if (mensajeExistente) {
+    mensajeExistente.remove();
+  }
+
+  const mensajeExito = document.createElement('p');
+  mensajeExito.classList.add('form-success');
+  mensajeExito.textContent = mensaje;
+  mensajeExito.style.fontSize = '14px';
+  mensajeExito.style.color = 'var(--color-menta-800)';
+  mensajeExito.style.marginTop = '1rem';
+
+  const form = document.getElementById('form-voluntario');
+  if (form) {
+    form.appendChild(mensajeExito);
+  }
 }
 
 function crearModalVoluntario() {
@@ -550,6 +625,7 @@ function cerrarModalVoluntario() {
 // Función para abrir el modal
 function abrirModalDonacion() {
   if (modalDonacion) {
+    actualizarTotalDonacionesUI();
     modalDonacion.classList.add('activo');
     document.body.style.overflow = 'hidden';
   }
@@ -738,6 +814,20 @@ if (btnDonar) {
 
     // Si no hay errores, mostrar mensaje de éxito
     if (!hayErrores) {
+      const montoValor = monto ? parseFloat(monto.value) : 0;
+      const monedaSeleccionada = moneda ? moneda.value : 'ars';
+
+      if (montoValor > 0) {
+        const totales = obtenerTotalesDonaciones();
+        const nuevosTotales = {
+          ars: totales.ars + (monedaSeleccionada === 'ars' ? montoValor : 0),
+          usd: totales.usd + (monedaSeleccionada === 'usd' ? montoValor : 0),
+        };
+        guardarTotalesDonaciones(nuevosTotales);
+        actualizarTotalDonacionesUI();
+      }
+
+      formDonacion.reset();
       btnDonar.textContent = '¡Donación procesada!';
       btnDonar.style.background = 'var(--color-menta-600)';
       btnDonar.disabled = true;
@@ -747,7 +837,6 @@ if (btnDonar) {
         btnDonar.style.background = '';
         btnDonar.disabled = false;
         cerrarModalDonacion();
-        formDonacion.reset();
       }, 2000);
     }
   });
@@ -808,7 +897,9 @@ if (btnEnviarVoluntario) {
     }
 
     if (!hayErrores) {
-      btnEnviarVoluntario.textContent = '¡Solicitud enviada!';
+      formVoluntario.reset();
+      mostrarMensajeVoluntario('¡Bienvenido a NovaMente!');
+      btnEnviarVoluntario.textContent = 'Bienvenido a NovaMente';
       btnEnviarVoluntario.style.background = 'var(--color-menta-600)';
       btnEnviarVoluntario.disabled = true;
 
@@ -817,7 +908,6 @@ if (btnEnviarVoluntario) {
         btnEnviarVoluntario.style.background = '';
         btnEnviarVoluntario.disabled = false;
         cerrarModalVoluntario();
-        formVoluntario.reset();
       }, 2000);
     }
   });

@@ -881,6 +881,7 @@
 
 .proyecto-card__descripcion--digital {
   color: var(--color-gris-400);
+  min-height: 105px;
 }
 
 .proyecto-card__descripcion--offline {
@@ -1858,6 +1859,10 @@
   animation: slideUp 0.3s ease;
 }
 
+#modal-voluntario .modal-content {
+  max-width: 620px;
+}
+
 .modal-close {
   position: absolute;
   top: 1.5rem;
@@ -1893,6 +1898,41 @@
 .modal-subtitle {
   font-size: 13px;
   color: var(--color-gris-400);
+  margin-bottom: 1rem;
+}
+
+.modal-total {
+  background: #F5FFFB;
+  border: 1px solid rgba(26, 156, 109, 0.15);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-total-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-menta-800);
+  margin-bottom: 0.35rem;
+}
+
+.modal-total-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-total-label {
+  font-size: 12px;
+  color: var(--color-gris-500);
+  margin-bottom: 0.35rem;
+}
+
+.modal-total-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-menta-900);
 }
 
 .modal-form {
