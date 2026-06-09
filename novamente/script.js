@@ -769,33 +769,39 @@ if (btnDonar) {
       }
 
       formDonacion.reset();
+
+      // Limpiar confirmación o equivalencia previa si existe
+      const existente = modalDonacion ? modalDonacion.querySelector('.donacion-equivalencia, .donacion-confirmacion') : null;
+      if (existente) existente.remove();
+
+      // Mostrar confirmación + equivalencias dentro del modal
+      const modalContenido = modalDonacion ? modalDonacion.querySelector('.modal-content') : null;
+      if (modalContenido) {
+        const mensajeEquivalencia = mostrarMensajeEquivalencia(montoValor, monedaSeleccionada);
+
+        const confirmacion = document.createElement('div');
+        confirmacion.className = 'donacion-confirmacion';
+        confirmacion.innerHTML = `
+          <div class="form-confirmacion">
+            <div class="form-confirmacion__icono">✓</div>
+            <p class="form-confirmacion__titulo">¡Gracias por tu donación!</p>
+            <p class="form-confirmacion__texto">Tu aporte ayuda a que más jóvenes accedan a recursos de salud mental de forma gratuita.</p>
+          </div>
+          ${mensajeEquivalencia}
+        `;
+        modalContenido.appendChild(confirmacion);
+
+        setTimeout(function () {
+          confirmacion.remove();
+          btnDonar.textContent = 'Donar ahora';
+          btnDonar.style.background = '';
+          btnDonar.disabled = false;
+        }, 4000);
+      }
+
       btnDonar.textContent = '¡Donación procesada!';
       btnDonar.style.background = 'var(--color-menta-600)';
       btnDonar.disabled = true;
-
-      const mensajeEquivalencia = mostrarMensajeEquivalencia(montoValor, monedaSeleccionada);
-      if (mensajeEquivalencia) {
-        const existente = modalDonacion ? modalDonacion.querySelector('.donacion-equivalencia') : null;
-        if (existente) existente.remove();
-
-        const contenedorMensaje = document.createElement('div');
-        contenedorMensaje.className = 'donacion-equivalencia';
-        contenedorMensaje.innerHTML = mensajeEquivalencia;
-
-        const modalContenido = modalDonacion ? modalDonacion.querySelector('.modal-content') : null;
-        if (modalContenido) {
-          modalContenido.appendChild(contenedorMensaje);
-        } else {
-          const form = document.getElementById('form-donacion');
-          if (form) form.appendChild(contenedorMensaje);
-        }
-      }
-
-      setTimeout(function () {
-        btnDonar.textContent = 'Donar ahora';
-        btnDonar.style.background = '';
-        btnDonar.disabled = false;
-      }, 3000);
     }
   });
 }
@@ -893,9 +899,18 @@ if (formVoluntario) {
 ───────────────────────────────────────── */
 const paginaActual = window.location.pathname.split('/').pop() || 'index.html';
 
+// Páginas que pertenecen a la sección Proyectos
+const subpaginasProyectos = [
+  'mente-afuera.html',
+  'hablemos-en-serio.html',
+  'sin-filtro.html',
+  'que-estas-consumiendo.html'
+];
+
 document.querySelectorAll('.nav-links a, .nav-menu-mobile a').forEach(function (link) {
   const destino = link.getAttribute('href');
-  if (destino === paginaActual) {
+  const esSubpaginaProyecto = subpaginasProyectos.includes(paginaActual) && destino === 'proyectos.html';
+  if (destino === paginaActual || esSubpaginaProyecto) {
     link.classList.add('nav-link--activo');
   }
 });

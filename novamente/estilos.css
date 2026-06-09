@@ -1589,6 +1589,12 @@
   max-width: 320px;
 }
 
+.donacion-confirmacion {
+  border-top: 0.5px solid var(--color-gris-100);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+}
+
 /* ─── Voluntariado ─── */
 .voluntario-section {
   background: var(--color-fondo-claro);
