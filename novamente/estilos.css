@@ -753,6 +753,36 @@
   padding: 2rem 3rem;
 }
 
+.proyectos-header--hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: var(--color-blanco);
+  padding: 4rem 3rem;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.proyectos-header--hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 52, 44, 0.55);
+}
+
+.proyectos-header--hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.proyectos-header--hero .proyectos-header__label,
+.proyectos-header--hero .proyectos-header__titulo,
+.proyectos-header--hero .proyectos-header__sub {
+  color: var(--color-blanco);
+}
+
 .proyectos-header__titulo {
   font-size: 30px;
   color: var(--color-menta-800);
@@ -814,6 +844,15 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
 }
 
 .proyecto-card--digital {
@@ -954,7 +993,7 @@
 
 .proyecto-card__imagen {
   width: 100%;
-  height: 180px;
+  height: 140px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 16px;
@@ -1017,6 +1056,42 @@
   color: var(--color-menta-400);
   margin-top: 4px;
   font-style: italic;
+}
+
+.detalle-proyecto {
+  padding: 3.5rem 2rem;
+}
+
+.detalle-proyecto__imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.detalle-proyecto__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.detalle-proyecto__seccion {
+  background: var(--color-blanco);
+  border: 0.5px solid var(--color-gris-100);
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.detalle-proyecto__seccion-title,
+.detalle-proyecto__seccion p {
+  color: var(--color-menta-800);
+}
+
+.detalle-proyecto__text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-menta-600);
 }
 
 .filosofia-banner {

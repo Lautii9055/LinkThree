@@ -1,120 +1,4 @@
-/* ─────────────────────────────────────────
-        tipos de datos y variables
-───────────────────────────────────────── */
-// let nombreVariable = dato;
-// const nombreConstante = dato;
-
-
-/* ─────────────────────────────────────────
-            VARIABLE TIPO STRING
-───────────────────────────────────────── */
-// let saludar = "Hola, mundo!";
-// console.log(saludar);
-
-/* ─────────────────────────────────────────
-            VARIABLE TIPO NUMBER
-───────────────────────────────────────── */
-// let numero = 42;
-// console.log(numero);
-
-/* ─────────────────────────────────────────
-            CONSTANTE TIPO STRING   
-───────────────────────────────────────── */
-// const fechaNacimiento = 2005;
-// console.log(fechaNacimiento);
-
-// let edad = 2026 - fechaNacimiento;
-// console.log(edad);
-/* ─────────────────────────────────────────
-            CONSTANTE TIPO BOOLEAN
-───────────────────────────────────────── */
-// const esMayorDeEdad = edad > 18;
-// console.log(esMayorDeEdad); 
-
-/* ─────────────────────────────────────────
-    ARRAYS (conjunto de datos del mismo tipo)
-───────────────────────────────────────── */
-// let numeros = [1, 2, 3, 4, 5];
-// console.log(numeros);
-
-// let frutas = ["manzana", "banana", "naranja"];
-// console.log(frutas);
-
-/* ────────────────────────────────────────────────────────────────────
-OBJETOS (conjunto de datos relacionados, con propiedades y valores)
-────────────────────────────────────────────────────────────────────── */
-// let persona = {
-// nombre: "Lautaro",
-// edad: 21,
-// ocupacion: "Estudiante",
-// intereses: ["programación", "música", "deportes"],
-// };
-// console.log(persona);
-
-/* ─────────────────────────────────────────
-FUNCTIONES (bloques de código reutilizables)
-───────────────────────────────────────── */
-// function saludar(nombre) {
-//   return `Hola, ${nombre} Bienvenido a la programación.`;
-// }
-// console.log(saludar("Lautaro"));
-
-/* ─────────────────────────────────────────
-FUNCTIONES (bloques de código reutilizables)
-───────────────────────────────────────── */
-// function sumar(a, b) {
-//   return a + b;
-// }
-// console.log(sumar(5, 3));
-
-
-
-
-/* ─────────────────────────────────────────
-   1. NAVBAR ACTIVO
-   Marca como activo el link que corresponde
-   a la página que el usuario está viendo.
-───────────────────────────────────────── */
-
-// const navLinks = document.querySelectorAll('.nav-links a');
-// const paginaActual = window.location.pathname.split('/').pop();
-
-// navLinks.forEach(function(link) {
-//   const hrefLink = link.getAttribute('href');
-//   if (hrefLink === paginaActual) {
-//     link.classList.add('nav-link--activo');
-//   }
-// });
-
-
-/* ─────────────────────────────────────────
-   2. SCROLL SUAVE
-   Hace que los links internos (#seccion)
-   scrolleen suavemente en lugar de saltar.
-───────────────────────────────────────── */
-
-// const linksInternos = document.querySelectorAll('a[href^="#"]');
-
-// linksInternos.forEach(function(link) {
-//   link.addEventListener('click', function(e) {
-//     e.preventDefault();
-
-//     const idDestino = link.getAttribute('href');
-//     const seccionDestino = document.querySelector(idDestino);
-
-//     if (seccionDestino) {
-//       seccionDestino.scrollIntoView({
-//         behavior: 'smooth'
-//       });
-//     }
-//   });
-// });
-
-
-/* ─────────────────────────────────────────
-   3. BOTÓN "QUIERO SER VOLUNTARIO"
-───────────────────────────────────────── */
-
+// NovaMente - lógica de donaciones, modales y validaciones
 const btnVoluntario = document.getElementById('btn-voluntario');
 
 if (btnVoluntario) {
@@ -124,10 +8,6 @@ if (btnVoluntario) {
   });
 }
 
-
-/* ─────────────────────────────────────────
-   4. VALIDACIÓN DEL FORMULARIO DE CONTACTO
-───────────────────────────────────────── */
 
 const btnContacto = document.getElementById('btn-contacto');
 
@@ -141,13 +21,11 @@ if (btnContacto) {
 
     let hayErrores = false;
 
-    // Limpia errores previos
     const erroresPrevios = document.querySelectorAll('.form-error');
     erroresPrevios.forEach(function (error) {
       error.remove();
     });
 
-    // Valida cada campo
     const campos = [nombre, email, asunto, mensaje];
 
     campos.forEach(function (campo) {
@@ -171,7 +49,6 @@ if (btnContacto) {
       }
     });
 
-    // Valida formato de email
     if (email && email.value.trim() !== '') {
       const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!formatoEmail.test(email.value)) {
@@ -207,7 +84,7 @@ if (btnContacto) {
 /* ─────────────────────────────────────────
    5. CONTADOR ANIMADO
 ───────────────────────────────────────── */
-
+// Anima los contadores de estadísticas
 function animarContador(elemento, valorFinal, duracion, sufijo) {
   let inicio = 0;
   const incremento = valorFinal / (duracion / 13);
@@ -256,7 +133,6 @@ if (stats.length > 0) {
 /* ─────────────────────────────────────────
    EXPANDIBLE AL CLICKEAR IMAGEN DE PROYECTO
 ───────────────────────────────────────── */
-
 const imagenesProyecto = document.querySelectorAll('.proyecto-card__imagen');
 
 imagenesProyecto.forEach(function (imagen) {
@@ -269,12 +145,10 @@ imagenesProyecto.forEach(function (imagen) {
 
     const estaAbierto = detalle.classList.contains('proyecto-card__detalle--visible');
 
-    // Cerrar todos los detalles abiertos
     document.querySelectorAll('.proyecto-card__detalle--visible').forEach(function (d) {
       d.classList.remove('proyecto-card__detalle--visible');
     });
 
-    // Si no estaba abierto, abrir este
     if (!estaAbierto) {
       detalle.classList.add('proyecto-card__detalle--visible');
     }
@@ -286,19 +160,16 @@ imagenesProyecto.forEach(function (imagen) {
 /* ─────────────────────────────────────────
    MENÚ HAMBURGUESA
 ───────────────────────────────────────── */
-
 const hamburger = document.getElementById('nav-hamburger');
 const menuMobile = document.getElementById('nav-menu-mobile');
 
 if (hamburger && menuMobile) {
 
-  // abre y/o cierra al clickear el botón
   hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('abierto');
     menuMobile.classList.toggle('abierto');
   });
 
-  // cierra al clickear cualquier link del menú
   const linksMobile = menuMobile.querySelectorAll('a');
   linksMobile.forEach(function (link) {
     link.addEventListener('click', function () {
@@ -307,7 +178,6 @@ if (hamburger && menuMobile) {
     });
   });
 
-  // cierra al clickear fuera del menú
   document.addEventListener('click', function (e) {
     const clickDentroNav = e.target.closest('.nav');
     const clickDentroMenu = e.target.closest('.nav-menu-mobile');
@@ -323,6 +193,7 @@ if (hamburger && menuMobile) {
 /* ─────────────────────────────────────────
    MODAL FORMULARIO DE DONACIÓN
 ───────────────────────────────────────── */
+// Crea el modal de donación
 function crearModalDonacion() {
 
   if (document.getElementById('modal-donacion')) return;
@@ -451,6 +322,7 @@ const botonesDonarAhora = document.querySelectorAll('.footer-donate-btn, .apoyo-
 
 const TOTAL_DONACIONES_KEY = 'novaMenteTotalDonaciones';
 
+// Obtiene los totales guardados de donaciones
 function obtenerTotalesDonaciones() {
   const totalesGuardados = localStorage.getItem(TOTAL_DONACIONES_KEY);
   if (!totalesGuardados) {
@@ -468,10 +340,12 @@ function obtenerTotalesDonaciones() {
   }
 }
 
+// Guarda los totales de donaciones en localStorage
 function guardarTotalesDonaciones(totales) {
   localStorage.setItem(TOTAL_DONACIONES_KEY, JSON.stringify(totales));
 }
 
+// Formatea un monto para ARS o USD
 function formatearMonto(valor, moneda) {
   if (moneda === 'usd') {
     return 'US$ ' + valor.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -479,6 +353,74 @@ function formatearMonto(valor, moneda) {
   return '$ ' + valor.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+const costosProyectos = {
+  'Hablemos en Serio': { ars: 10000, usd: 25 },
+  'Mente Afuera': { ars: 15000, usd: 37 },
+  'Sin Filtro': { ars: 8000, usd: 20 },
+  '¿Qué estás consumiendo?': { ars: 5000, usd: 12 }
+};
+
+// Calcula cuántos proyectos equivalen a la donación
+function calcularEquivalenciaDonaciones(monto, moneda) {
+  const equivalencias = [];
+
+  for (const [proyecto, costos] of Object.entries(costosProyectos)) {
+    const costoProyecto = moneda === 'usd' ? costos.usd : costos.ars;
+    const cantidadProyectos = Math.floor(monto / costoProyecto);
+
+    if (cantidadProyectos > 0) {
+      equivalencias.push({
+        proyecto: proyecto,
+        cantidad: cantidadProyectos,
+        moneda: moneda
+      });
+    }
+  }
+
+  equivalencias.sort((a, b) => b.cantidad - a.cantidad);
+  return equivalencias;
+}
+
+// Genera el mensaje de equivalencia que muestra los proyectos posibles
+function mostrarMensajeEquivalencia(monto, moneda) {
+  const equivalencias = calcularEquivalenciaDonaciones(monto, moneda);
+
+  if (equivalencias.length === 0) return '';
+
+  const lineas = equivalencias.map((item) => {
+    const pluralTaller = item.cantidad === 1 ? 'taller' : 'talleres';
+    const pluralPrograma = item.cantidad === 1 ? 'programa' : 'programas';
+    const pluralCampana = item.cantidad === 1 ? 'campaña' : 'campañas';
+    const pluralRecurso = item.cantidad === 1 ? 'recurso' : 'recursos';
+
+    let plural = pluralTaller;
+    if (item.proyecto.includes('Mente')) plural = pluralPrograma;
+    if (item.proyecto.includes('Filtro')) plural = pluralCampana;
+    if (item.proyecto.includes('consumiendo')) plural = pluralRecurso;
+
+    return `o ${item.cantidad} ${plural} "${item.proyecto}"`;
+  });
+
+  const costos = Object.values(costosProyectos).map(c => (moneda === 'usd' ? c.usd : c.ars));
+  const minCosto = Math.min(...costos);
+  const sobrante = monto % minCosto;
+
+  let mensaje = '<div style="background: #F5FFFB; border: 1px solid rgba(26, 156, 109, 0.15); border-radius: 8px; padding: 1rem; margin-top: 1rem; font-size: 14px; color: var(--color-menta-900);">';
+  mensaje += '<p style="font-weight: 600; margin-bottom: 0.5rem;">¡Tu donación equivale a:</p>';
+
+  lineas.forEach(l => {
+    mensaje += `<p style="margin: 0.2rem 0;">${l}</p>`;
+  });
+
+  if (sobrante > 0) {
+    mensaje += `<p style="margin: 0.4rem 0 0 0; font-style: italic; color: #4b8069;">Sobra ${formatearMonto(sobrante, moneda)} que no alcanza para otro proyecto.</p>`;
+  }
+
+  mensaje += '</div>';
+  return mensaje;
+}
+
+// Actualiza la visualización de los totales de donación
 function actualizarTotalDonacionesUI() {
   const totalARS = document.getElementById('total-donaciones-ars');
   const totalUSD = document.getElementById('total-donaciones-usd');
@@ -500,6 +442,7 @@ const btnEnviarVoluntario = document.getElementById('btn-enviar-voluntario');
 const botonesVoluntario = document.querySelectorAll('.voluntario-cta__btn, .comunidad-cta-btn');
 const botonesQuieroSumarme = document.querySelectorAll('.apoyo-btn-outline');
 
+// Limpia errores y estados visuales dentro de un modal
 function limpiarErroresModal(modal) {
   if (!modal) return;
   modal.querySelectorAll('.form-error, .form-success').forEach(function (error) {
@@ -510,6 +453,7 @@ function limpiarErroresModal(modal) {
   });
 }
 
+// Muestra un mensaje de éxito en el modal de voluntariado
 function mostrarMensajeVoluntario(mensaje) {
   if (!modalVoluntario) return;
   const mensajeExistente = modalVoluntario.querySelector('.form-success');
@@ -530,6 +474,7 @@ function mostrarMensajeVoluntario(mensaje) {
   }
 }
 
+// Crea el modal de voluntariado
 function crearModalVoluntario() {
   if (document.getElementById('modal-voluntario')) return;
 
@@ -607,6 +552,7 @@ function crearModalVoluntario() {
   document.body.insertAdjacentHTML('beforeend', modalHTML);
 }
 
+// Abre el modal de voluntariado
 function abrirModalVoluntario() {
   if (modalVoluntario) {
     modalVoluntario.classList.add('activo');
@@ -614,6 +560,7 @@ function abrirModalVoluntario() {
   }
 }
 
+// Cierra el modal de voluntariado
 function cerrarModalVoluntario() {
   if (modalVoluntario) {
     modalVoluntario.classList.remove('activo');
@@ -622,7 +569,7 @@ function cerrarModalVoluntario() {
   }
 }
 
-// Función para abrir el modal
+// Abre el modal de donación
 function abrirModalDonacion() {
   if (modalDonacion) {
     actualizarTotalDonacionesUI();
@@ -631,22 +578,24 @@ function abrirModalDonacion() {
   }
 }
 
-// Función para cerrar el modal
+// Cierra el modal de donación
 function cerrarModalDonacion() {
   if (modalDonacion) {
     modalDonacion.classList.remove('activo');
     document.body.style.overflow = '';
-    // Limpiar errores
     document.querySelectorAll('.form-error').forEach(function (error) {
       error.remove();
     });
     document.querySelectorAll('.form-input').forEach(function (input) {
       input.style.borderColor = '';
     });
+    const mensajeEquivalencia = modalDonacion.querySelector('.donacion-equivalencia');
+    if (mensajeEquivalencia) {
+      mensajeEquivalencia.remove();
+    }
   }
 }
 
-// Event listeners para cerrar el modal de donación
 if (modalClose) {
   modalClose.addEventListener('click', cerrarModalDonacion);
 }
@@ -659,7 +608,6 @@ if (modalDonacion) {
   });
 }
 
-// Event listeners para cerrar el modal de voluntariado
 if (modalVoluntarioClose) {
   modalVoluntarioClose.addEventListener('click', cerrarModalVoluntario);
 }
@@ -672,7 +620,6 @@ if (modalVoluntario) {
   });
 }
 
-// Event listeners para abrir el modal al hacer click en botones "Donar ahora"
 botonesDonarAhora.forEach(function (boton) {
   boton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -680,7 +627,6 @@ botonesDonarAhora.forEach(function (boton) {
   });
 });
 
-// Footer: abrir modal de donación o ir al formulario de contacto
 const footerLinks = document.querySelectorAll('.footer-links a');
 
 footerLinks.forEach(function (link) {
@@ -716,7 +662,6 @@ footerLinks.forEach(function (link) {
   }
 });
 
-// Event listeners para abrir el modal al hacer click en botones "Ser voluntario" y "Quiero sumarme"
 botonesVoluntario.forEach(function (boton) {
   boton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -733,7 +678,6 @@ botonesQuieroSumarme.forEach(function (boton) {
   }
 });
 
-// Validación del formulario de donación
 if (btnDonar) {
   btnDonar.addEventListener('click', function () {
     const nombre = document.getElementById('dona-nombre');
@@ -749,16 +693,13 @@ if (btnDonar) {
 
     let hayErrores = false;
 
-    // Limpiar errores previos
     const erroresPrevios = document.querySelectorAll('.form-error');
     erroresPrevios.forEach(function (error) {
       error.remove();
     });
 
-    // Array de todos los campos
     const campos = [nombre, apellido, email, tipoDoc, numDoc, fechaNac, paisCelular, celular, monto, moneda];
 
-    // Validar cada campo
     campos.forEach(function (campo) {
       if (!campo) return;
 
@@ -779,7 +720,6 @@ if (btnDonar) {
       }
     });
 
-    // Validar formato de email
     if (email && email.value.trim() !== '') {
       const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!formatoEmail.test(email.value)) {
@@ -797,7 +737,6 @@ if (btnDonar) {
       }
     }
 
-    // Validar que el monto sea mayor a 0
     if (monto && monto.value && parseFloat(monto.value) <= 0) {
       hayErrores = true;
       monto.style.borderColor = '#E05555';
@@ -812,7 +751,6 @@ if (btnDonar) {
       monto.parentNode.appendChild(errorMonto);
     }
 
-    // Si no hay errores, mostrar mensaje de éxito
     if (!hayErrores) {
       const montoValor = monto ? parseFloat(monto.value) : 0;
       const monedaSeleccionada = moneda ? moneda.value : 'ars';
@@ -832,17 +770,33 @@ if (btnDonar) {
       btnDonar.style.background = 'var(--color-menta-600)';
       btnDonar.disabled = true;
 
+      const mensajeEquivalencia = mostrarMensajeEquivalencia(montoValor, monedaSeleccionada);
+      if (mensajeEquivalencia) {
+        const existente = modalDonacion ? modalDonacion.querySelector('.donacion-equivalencia') : null;
+        if (existente) existente.remove();
+
+        const contenedorMensaje = document.createElement('div');
+        contenedorMensaje.className = 'donacion-equivalencia';
+        contenedorMensaje.innerHTML = mensajeEquivalencia;
+
+        const modalContenido = modalDonacion ? modalDonacion.querySelector('.modal-content') : null;
+        if (modalContenido) {
+          modalContenido.appendChild(contenedorMensaje);
+        } else {
+          const form = document.getElementById('form-donacion');
+          if (form) form.appendChild(contenedorMensaje);
+        }
+      }
+
       setTimeout(function () {
         btnDonar.textContent = 'Donar ahora';
         btnDonar.style.background = '';
         btnDonar.disabled = false;
-        cerrarModalDonacion();
-      }, 2000);
+      }, 3000);
     }
   });
 }
 
-// Validación del formulario de voluntariado
 if (btnEnviarVoluntario) {
   btnEnviarVoluntario.addEventListener('click', function () {
     const nombre = document.getElementById('voluntario-nombre');
@@ -913,7 +867,6 @@ if (btnEnviarVoluntario) {
   });
 }
 
-// Permitir Enter para enviar el formulario de donación
 if (formDonacion) {
   formDonacion.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -923,7 +876,6 @@ if (formDonacion) {
   });
 }
 
-// Permitir Enter para enviar el formulario de voluntariado
 if (formVoluntario) {
   formVoluntario.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
