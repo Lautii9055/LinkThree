@@ -758,18 +758,19 @@
   background-size: cover;
   background-position: center;
   color: var(--color-blanco);
-  padding: 4rem 3rem;
-  min-height: 360px;
+  padding: 2.5rem 2rem 0;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .proyectos-header--hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(4, 52, 44, 0.55);
+  background: var(--color-fondo-base);
 }
 
 .proyectos-header--hero > * {
@@ -780,7 +781,7 @@
 .proyectos-header--hero .proyectos-header__label,
 .proyectos-header--hero .proyectos-header__titulo,
 .proyectos-header--hero .proyectos-header__sub {
-  color: var(--color-blanco);
+  color: var(--color-menta-800);
 }
 
 .proyectos-header__titulo {
@@ -2042,6 +2043,41 @@
 .form-input-select:focus {
   border-color: var(--color-menta-400);
   background: var(--color-fondo-claro);
+}
+
+/* ══════════════════════════════════════
+  BOTON PARA VOLVER A LA PARTE SUPERIOR
+══════════════════════════════════════ */
+#btn-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-fondo-claro);
+  border: 1.5px solid var(--color-menta-200);
+  color: var(--color-menta-600);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#btn-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#btn-top:hover {
+  background-color: var(--color-menta-50);
+  border-color: var(--color-menta-400);
+  color: var(--color-menta-800);
 }
 
 @keyframes fadeIn {

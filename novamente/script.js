@@ -884,3 +884,14 @@ if (formVoluntario) {
     }
   });
 }
+
+// BOTON PARA VOLVER ARRIBA
+const btnTop = document.getElementById('btn-top');
+
+window.addEventListener('scroll', () => {
+  btnTop.classList.toggle('visible', window.scrollY > 300);
+});
+
+btnTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
