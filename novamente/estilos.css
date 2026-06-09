@@ -18,6 +18,7 @@
   --color-blanco: #FFFFFF;
   --color-fondo-base: #F1EFE8;
   --color-fondo-claro: #F4FCF8;
+  --color-error: #E05555;
 }
 
 /* ══════════════════════════════════════
@@ -577,13 +578,6 @@
   object-fit: cover;
   display: block;
   border-radius: 0;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 2.5rem;
 }
 
 .intro__hero-overlay {
@@ -1558,6 +1552,43 @@
   text-decoration: none;
 }
 
+/* ─── Confirmación de envío ─── */
+.form-confirmacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  gap: 12px;
+}
+
+.form-confirmacion__icono {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-menta-50);
+  border: 1.5px solid var(--color-menta-200);
+  color: var(--color-menta-600);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-confirmacion__titulo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: var(--color-menta-800);
+}
+
+.form-confirmacion__texto {
+  font-size: 14px;
+  color: var(--color-gris-400);
+  line-height: 1.7;
+  max-width: 320px;
+}
+
 /* ─── Voluntariado ─── */
 .voluntario-section {
   background: var(--color-fondo-claro);
@@ -2106,9 +2137,19 @@
    MEDIA QUERIES
 ══════════════════════════════════════ */
 
-@media (max-width: 1024px) {
+/* Tablet: entre 600px y 992px */
+@media (min-width: 600px) and (max-width: 992px) {
   .nav-links {
     gap: 16px;
+  }
+
+  .nav-links,
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
   }
 
   .title,
@@ -2139,12 +2180,69 @@
     gap: 2rem;
   }
 
+  .footer-first-column {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
   .desc-valores {
     grid-template-columns: 1fr;
   }
+
+  .mision-vision__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .equipo,
+  .voluntario-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .proyecto-card__imagen {
+    height: 200px;
+  }
+
+  .voluntario-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .voluntario-cta__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .modal,
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .modal__header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal__contenido {
+    padding: 1.25rem;
+  }
 }
 
-@media (max-width: 768px) {
+/* Mobile: hasta 600px */
+@media (max-width: 600px) {
+  .nav {
+    padding: 0 1rem;
+  }
+
+  .nav-logo {
+    font-size: 17px;
+  }
 
   .nav-links,
   .nav-btn {
@@ -2155,13 +2253,22 @@
     display: flex;
   }
 
+  .nav-menu-mobile {
+    padding: 1rem;
+  }
+
+  .nav-menu-mobile a {
+    font-size: 16px;
+    padding: 0.875rem 0;
+  }
+
   .intro {
     padding: 1.5rem;
   }
 
   .title,
   .title-italic {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .subtitle {
@@ -2175,11 +2282,12 @@
   }
 
   .intro__imagen {
-    max-height: 240px;
+    max-height: 180px;
+    border-radius: 10px;
   }
 
   .intro__hero-imagen {
-    max-height: 360px;
+    max-height: 260px;
   }
 
   .intro__hero-overlay {
@@ -2219,6 +2327,10 @@
     gap: 10px;
   }
 
+  .stat-num {
+    font-size: 32px;
+  }
+
   .tools-grid,
   .bloque__grid,
   .contacto-form-section__grid,
@@ -2236,6 +2348,10 @@
     gap: 14px;
   }
 
+  .proyecto-card {
+    padding: 1.25rem;
+  }
+
   .proyecto-card__imagen {
     height: 200px;
   }
@@ -2244,13 +2360,10 @@
     flex-direction: column;
   }
 
-  .valores-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  .valores-grid,
   .equipo,
   .voluntario-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .apoyo-grid {
@@ -2272,12 +2385,16 @@
     padding: 1.5rem 1rem;
   }
 
+  .contacto-form-section__form {
+    padding: 1.25rem;
+  }
+
   .footer {
     padding: 2rem 1.5rem 0;
   }
 
   .footer-top {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -2289,6 +2406,11 @@
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
     gap: 10px;
   }
 
@@ -2321,65 +2443,5 @@
 
   .modal__contenido {
     padding: 1.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav {
-    padding: 0 1rem;
-  }
-
-  .nav-logo {
-    font-size: 17px;
-  }
-
-  .nav-menu-mobile {
-    padding: 1rem;
-  }
-
-  .nav-menu-mobile a {
-    font-size: 16px;
-    padding: 0.875rem 0;
-  }
-
-  .title,
-  .title-italic {
-    font-size: 20px;
-  }
-
-  .intro__imagen {
-    max-height: 180px;
-    border-radius: 10px;
-  }
-
-  .intro__hero-imagen {
-    max-height: 260px;
-  }
-
-  .stat-num {
-    font-size: 32px;
-  }
-
-  .proyecto-card {
-    padding: 1.25rem;
-  }
-
-  .valores-grid,
-  .equipo,
-  .voluntario-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contacto-form-section__form {
-    padding: 1.25rem;
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-legal {
-    flex-wrap: wrap;
-    gap: 10px;
   }
 }

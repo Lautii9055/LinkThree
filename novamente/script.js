@@ -1,4 +1,5 @@
 // NovaMente - lógica de donaciones, modales y validaciones
+const COLOR_ERROR = getComputedStyle(document.documentElement).getPropertyValue('--color-error').trim();
 const btnVoluntario = document.getElementById('btn-voluntario');
 
 if (btnVoluntario) {
@@ -14,36 +15,30 @@ const btnContacto = document.getElementById('btn-contacto');
 if (btnContacto) {
   btnContacto.addEventListener('click', function () {
 
-    const nombre = document.querySelector('input[type="text"]');
-    const email = document.querySelector('input[type="email"]');
-    const asunto = document.querySelector('.form-select');
-    const mensaje = document.querySelector('.form-textarea');
+    const nombre = document.getElementById('contacto-nombre');
+    const email = document.getElementById('contacto-email');
+    const asunto = document.getElementById('contacto-asunto');
+    const mensaje = document.getElementById('contacto-mensaje');
 
     let hayErrores = false;
 
     const erroresPrevios = document.querySelectorAll('.form-error');
-    erroresPrevios.forEach(function (error) {
-      error.remove();
-    });
+    erroresPrevios.forEach(function (error) { error.remove(); });
 
     const campos = [nombre, email, asunto, mensaje];
 
     campos.forEach(function (campo) {
       if (!campo) return;
-
       if (campo.value.trim() === '' || campo.value === '') {
         hayErrores = true;
-        campo.style.borderColor = '#E05555';
-
+        campo.style.borderColor = COLOR_ERROR;
         const mensajeError = document.createElement('p');
         mensajeError.classList.add('form-error');
         mensajeError.textContent = 'Este campo es obligatorio.';
         mensajeError.style.fontSize = '12px';
-        mensajeError.style.color = '#E05555';
+        mensajeError.style.color = COLOR_ERROR;
         mensajeError.style.marginTop = '4px';
-
         campo.parentNode.appendChild(mensajeError);
-
       } else {
         campo.style.borderColor = '';
       }
@@ -53,29 +48,37 @@ if (btnContacto) {
       const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!formatoEmail.test(email.value)) {
         hayErrores = true;
-        email.style.borderColor = '#E05555';
-
+        email.style.borderColor = COLOR_ERROR;
         const errorEmail = document.createElement('p');
         errorEmail.classList.add('form-error');
         errorEmail.textContent = 'Ingresá un email válido.';
         errorEmail.style.fontSize = '12px';
-        errorEmail.style.color = '#E05555';
+        errorEmail.style.color = COLOR_ERROR;
         errorEmail.style.marginTop = '4px';
-
         email.parentNode.appendChild(errorEmail);
       }
     }
 
     if (!hayErrores) {
-      btnContacto.textContent = '¡Mensaje enviado!';
-      btnContacto.style.background = 'var(--color-menta-600)';
-      btnContacto.disabled = true;
+      // Limpiar el formulario
+      campos.forEach(function (campo) {
+        if (campo) {
+          campo.value = '';
+          campo.style.borderColor = '';
+        }
+      });
 
-      setTimeout(function () {
-        btnContacto.textContent = 'Enviar mensaje';
-        btnContacto.style.background = '';
-        btnContacto.disabled = false;
-      }, 3000);
+      // Ocultar el formulario y mostrar mensaje de confirmación
+      const wrapper = document.getElementById('form-contacto-wrapper');
+      if (wrapper) {
+        wrapper.innerHTML = `
+          <div class="form-confirmacion">
+            <div class="form-confirmacion__icono">✓</div>
+            <p class="form-confirmacion__titulo">¡Mensaje enviado!</p>
+            <p class="form-confirmacion__texto">Gracias por escribirnos. Te respondemos en un plazo de 48 a 72 horas hábiles.</p>
+          </div>
+        `;
+      }
     }
   });
 }
@@ -705,13 +708,13 @@ if (btnDonar) {
 
       if (campo.value.trim() === '' || campo.value === '') {
         hayErrores = true;
-        campo.style.borderColor = '#E05555';
+        campo.style.borderColor = COLOR_ERROR;
 
         const mensajeError = document.createElement('p');
         mensajeError.classList.add('form-error');
         mensajeError.textContent = 'Este campo es obligatorio.';
         mensajeError.style.fontSize = '12px';
-        mensajeError.style.color = '#E05555';
+        mensajeError.style.color = COLOR_ERROR;
         mensajeError.style.marginTop = '4px';
 
         campo.parentNode.appendChild(mensajeError);
@@ -724,13 +727,13 @@ if (btnDonar) {
       const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!formatoEmail.test(email.value)) {
         hayErrores = true;
-        email.style.borderColor = '#E05555';
+        email.style.borderColor = COLOR_ERROR;
 
         const errorEmail = document.createElement('p');
         errorEmail.classList.add('form-error');
         errorEmail.textContent = 'Ingresá un email válido.';
         errorEmail.style.fontSize = '12px';
-        errorEmail.style.color = '#E05555';
+        errorEmail.style.color = COLOR_ERROR;
         errorEmail.style.marginTop = '4px';
 
         email.parentNode.appendChild(errorEmail);
@@ -739,13 +742,13 @@ if (btnDonar) {
 
     if (monto && monto.value && parseFloat(monto.value) <= 0) {
       hayErrores = true;
-      monto.style.borderColor = '#E05555';
+      monto.style.borderColor = COLOR_ERROR;
 
       const errorMonto = document.createElement('p');
       errorMonto.classList.add('form-error');
       errorMonto.textContent = 'El monto debe ser mayor a 0.';
       errorMonto.style.fontSize = '12px';
-      errorMonto.style.color = '#E05555';
+      errorMonto.style.color = COLOR_ERROR;
       errorMonto.style.marginTop = '4px';
 
       monto.parentNode.appendChild(errorMonto);
@@ -818,13 +821,13 @@ if (btnEnviarVoluntario) {
 
       if (campo.value.trim() === '' || campo.value === '') {
         hayErrores = true;
-        campo.style.borderColor = '#E05555';
+        campo.style.borderColor = COLOR_ERROR;
 
         const mensajeError = document.createElement('p');
         mensajeError.classList.add('form-error');
         mensajeError.textContent = 'Este campo es obligatorio.';
         mensajeError.style.fontSize = '12px';
-        mensajeError.style.color = '#E05555';
+        mensajeError.style.color = COLOR_ERROR;
         mensajeError.style.marginTop = '4px';
 
         campo.parentNode.appendChild(mensajeError);
@@ -837,13 +840,13 @@ if (btnEnviarVoluntario) {
       const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!formatoEmail.test(email.value)) {
         hayErrores = true;
-        email.style.borderColor = '#E05555';
+        email.style.borderColor = COLOR_ERROR;
 
         const errorEmail = document.createElement('p');
         errorEmail.classList.add('form-error');
         errorEmail.textContent = 'Ingresá un email válido.';
         errorEmail.style.fontSize = '12px';
-        errorEmail.style.color = '#E05555';
+        errorEmail.style.color = COLOR_ERROR;
         errorEmail.style.marginTop = '4px';
 
         email.parentNode.appendChild(errorEmail);
@@ -884,6 +887,19 @@ if (formVoluntario) {
     }
   });
 }
+
+/* ─────────────────────────────────────────
+   NAV LINK ACTIVO
+───────────────────────────────────────── */
+const paginaActual = window.location.pathname.split('/').pop() || 'index.html';
+
+document.querySelectorAll('.nav-links a, .nav-menu-mobile a').forEach(function (link) {
+  const destino = link.getAttribute('href');
+  if (destino === paginaActual) {
+    link.classList.add('nav-link--activo');
+  }
+});
+
 
 // BOTON PARA VOLVER ARRIBA
 const btnTop = document.getElementById('btn-top');

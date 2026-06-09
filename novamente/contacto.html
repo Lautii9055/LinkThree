@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Escribinos con tus dudas, propuestas o consultas de prensa. El equipo de NovaMente responde en 48 a 72 horas hábiles.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="estilos.css">
   <title>CONTACTO | NovaMente</title>
 </head>
@@ -82,18 +84,18 @@
           </div>
         </div>
 
-        <div class="contacto-form-section__form">
+        <div class="contacto-form-section__form" id="form-contacto-wrapper">
           <div class="form-group">
-            <label class="form-label">Nombre completo</label>
-            <input class="form-input" type="text" placeholder="Tu nombre" />
+            <label class="form-label" for="contacto-nombre">Nombre completo</label>
+            <input class="form-input" type="text" id="contacto-nombre" placeholder="Tu nombre" />
           </div>
           <div class="form-group">
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" placeholder="tu@email.com" />
+            <label class="form-label" for="contacto-email">Email</label>
+            <input class="form-input" type="email" id="contacto-email" placeholder="tu@email.com" />
           </div>
           <div class="form-group">
-            <label class="form-label">Asunto</label>
-            <select class="form-input form-select">
+            <label class="form-label" for="contacto-asunto">Asunto</label>
+            <select class="form-input form-select" id="contacto-asunto">
               <option value="" disabled selected>Seleccioná un motivo</option>
               <option value="consulta">Consulta general</option>
               <option value="voluntario">Quiero ser voluntario</option>
@@ -103,8 +105,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Mensaje</label>
-            <textarea class="form-input form-textarea" placeholder="Contanos en qué podemos ayudarte..."></textarea>
+            <label class="form-label" for="contacto-mensaje">Mensaje</label>
+            <textarea class="form-input form-textarea" id="contacto-mensaje" placeholder="Contanos en qué podemos ayudarte..."></textarea>
           </div>
           <button class="form-btn" type="button" id="btn-contacto">Enviar mensaje</button>
           <p class="form-nota">Al enviar este formulario aceptás nuestra <a href="#">política de privacidad</a>.</p>
