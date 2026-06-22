@@ -791,12 +791,12 @@ if (btnDonar) {
         `;
         modalContenido.appendChild(confirmacion);
 
-        setTimeout(function () {
-          confirmacion.remove();
-          btnDonar.textContent = 'Donar ahora';
-          btnDonar.style.background = '';
-          btnDonar.disabled = false;
-        }, 4000);
+        // setTimeout(function () {
+        //   confirmacion.remove();
+        //   btnDonar.textContent = 'Donar ahora';
+        //   btnDonar.style.background = '';
+        //   btnDonar.disabled = false;
+        // }, 4000);
       }
 
       btnDonar.textContent = '¡Donación procesada!';

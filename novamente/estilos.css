@@ -531,6 +531,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 2.5rem;
+  padding: 2.5rem 1rem;
 }
 
 .card-title {
@@ -642,7 +643,7 @@
 }
 
 .stat-num {
-  font-size: 28px;
+  font-size: 42px;
   color: var(--color-menta-100);
   margin-bottom: 4px;
 }
