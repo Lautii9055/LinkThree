@@ -34,6 +34,13 @@
 .site {
   font-family: 'DM Sans', sans-serif;
   background: var(--color-fondo-base);
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ══════════════════════════════════════
@@ -383,6 +390,8 @@
 .nav-logo {
   font-size: 20px;
   color: var(--color-menta-800);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .nav-links {
@@ -422,6 +431,18 @@
   border: none;
   cursor: pointer;
   padding: 4px;
+}
+
+/* Mostrar hamburguesa en cualquier pantalla menor a desktop */
+@media (max-width: 992px) {
+  .nav-links,
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
 }
 
 .nav-hamburger span {
@@ -1060,10 +1081,18 @@
 
 .detalle-proyecto__imagen {
   width: 100%;
-  height: auto;
+  height: 280px;
   border-radius: 16px;
   object-fit: cover;
   margin-bottom: 2rem;
+  display: block;
+  box-shadow: 0 6px 24px rgba(4, 52, 44, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.detalle-proyecto__imagen:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 36px rgba(4, 52, 44, 0.2);
 }
 
 .detalle-proyecto__grid {
@@ -2144,21 +2173,8 @@
    MEDIA QUERIES
 ══════════════════════════════════════ */
 
-/* Tablet: entre 600px y 992px */
-@media (min-width: 600px) and (max-width: 992px) {
-  .nav-links {
-    gap: 16px;
-  }
-
-  .nav-links,
-  .nav-btn {
-    display: none;
-  }
-
-  .nav-hamburger {
-    display: flex;
-  }
-
+/* Tablet: entre 769px y 992px */
+@media (min-width: 769px) and (max-width: 992px) {
   .title,
   .title-italic {
     font-size: 26px;
@@ -2215,6 +2231,10 @@
     height: 200px;
   }
 
+  .detalle-proyecto__imagen {
+    height: 200px;
+  }
+
   .voluntario-cta {
     flex-direction: column;
     align-items: flex-start;
@@ -2241,6 +2261,117 @@
   }
 }
 
+/* Tablet chica / móvil: hasta 768px */
+@media (max-width: 768px) {
+  /* Grids que en desktop son 2 o 3 columnas → 1 columna */
+  .detalle-proyecto__grid,
+  .mision-vision__grid,
+  .contacto-form-section__grid,
+  .prensa-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards de inicio → 1 columna */
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  /* Stats → 1 columna */
+  .mundo-stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* Grids de apoyo y voluntarios → 1 columna */
+  .apoyo-grid,
+  .voluntario-grid,
+  .equipo,
+  .valores-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Botones de apoyo — evitar corte */
+  .apoyo-btn,
+  .apoyo-btn-outline {
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    padding: 10px 12px;
+  }
+
+  /* Bloque de proyectos → 1 columna */
+  .bloque__grid,
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer → 1 columna */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-first-column {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Secciones con padding reducido */
+  .mundo,
+  .herramientas,
+  .proyectos-header,
+  .bloque,
+  .comunidad,
+  .sobre,
+  .mision-vision,
+  .apoyanos,
+  .contacto-header,
+  .contacto-form-section,
+  .voluntario-section,
+  .prensa-section,
+  .detalle-proyecto {
+    padding: 2rem 1.25rem;
+  }
+
+  /* Voluntario CTA → columna */
+  .voluntario-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .voluntario-cta__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Títulos de sección más chicos */
+  .section-title {
+    font-size: 22px;
+  }
+
+  .section-sub {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  /* Imagen de detalle de proyecto */
+  .detalle-proyecto__imagen {
+    height: 180px;
+  }
+
+  /* Desc valores en columna */
+  .desc-valores {
+    flex-direction: column;
+  }
+}
+
 /* Mobile: hasta 600px */
 @media (max-width: 600px) {
   .nav {
@@ -2248,16 +2379,7 @@
   }
 
   .nav-logo {
-    font-size: 17px;
-  }
-
-  .nav-links,
-  .nav-btn {
-    display: none;
-  }
-
-  .nav-hamburger {
-    display: flex;
+    font-size: 25px;
   }
 
   .nav-menu-mobile {
@@ -2267,10 +2389,6 @@
   .nav-menu-mobile a {
     font-size: 16px;
     padding: 0.875rem 0;
-  }
-
-  .intro {
-    padding: 1.5rem;
   }
 
   .title,
@@ -2288,18 +2406,22 @@
     font-size: 14px;
   }
 
-  .intro__imagen {
-    max-height: 180px;
-    border-radius: 10px;
+  .intro__hero{
+    height: 300px;
+  }
+
+  .intro__hero-imagen{
+    height: 100%;
+    object-fit: cover;
   }
 
   .intro__hero-imagen {
-    max-height: 260px;
+    max-height: 360px;
   }
 
-  .intro__hero-overlay {
-    padding: 1.5rem;
-  }
+  /* .intro__hero-overlay {
+    padding: 1rem;
+  } */
 
   .cards {
     grid-template-columns: 1fr;
@@ -2363,8 +2485,13 @@
     height: 200px;
   }
 
+  .detalle-proyecto__imagen {
+    height: 160px;
+  }
+
   .desc-valores {
     flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .valores-grid,
@@ -2372,6 +2499,14 @@
   .voluntario-grid {
     grid-template-columns: 1fr;
   }
+
+  .valor {
+    height: 5rem;
+  }
+  
+  /* .mv-card {
+    height: 25rem;
+  } */
 
   .apoyo-grid {
     grid-template-columns: 1fr;
@@ -2394,6 +2529,11 @@
 
   .contacto-form-section__form {
     padding: 1.25rem;
+  }
+
+  .prensa-contacto {
+    max-width: 80vh;
+    width: 100%;
   }
 
   .footer {
