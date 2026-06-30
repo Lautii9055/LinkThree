@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playlist | Lautaro Zanino</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../imagenes/LZ-Icon.png" type="image/png">
 </head>
+
 <body>
-     <header>
+    <header>
         <nav class="nav">
+            <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="ul-nav">
                 <li id="separador"><a href="../index.html">HOME</a></li>
                 <li id="separador"><a href="../aboutMe.html">ABOUT ME</a></li>
@@ -40,15 +49,19 @@
 
             <div class="media">
                 <video controls autoplay>
-                    <source src="https://www.youtube.com/watch?v=g2MEVJQe6Lk&list=RDg2MEVJQe6Lk&start_radio=1" type="video/mp4">
+                    <source src="https://www.youtube.com/watch?v=g2MEVJQe6Lk&list=RDg2MEVJQe6Lk&start_radio=1"
+                        type="video/mp4">
                 </video>
             </div>
         </div>
     </section>
     <footer>
-        <a href="https://www.linkedin.com/in/lautaro-zanino/"><img src="../imagenes/LinkedIn_Logo.png" alt="Logo_LinkedIn" width="25px"></a>
-        <a href="https://www.instagram.com/lauti_zanino?igsh=ZmNieHlxMHZqaXFq"><img src="../imagenes/Intagram_Logo.png" alt="Intagram_Logo" width="25px"></a>
+        <a href="https://www.linkedin.com/in/lautaro-zanino/"><img src="../imagenes/LinkedIn_Logo.png"
+                alt="Logo_LinkedIn" width="25px"></a>
+        <a href="https://www.instagram.com/lauti_zanino?igsh=ZmNieHlxMHZqaXFq"><img src="../imagenes/Intagram_Logo.png"
+                alt="Intagram_Logo" width="25px"></a>
         <p class="parrafos">&copy 2026 Lautaro Zanino</p>
     </footer>
 </body>
+
 </html>

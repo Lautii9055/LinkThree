@@ -5,60 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Lautaro Zanino</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="imagenes/LZ-Icon.png" type="image/png">
 </head>
 
 <body>
 
-<header>
-    <nav class="nav">
-        <ul class="ul-nav">
-            <li id="separador"><a href="index.html">HOME</a></li>
-            <li id="separador"><a href="aboutMe.html">ABOUT ME</a></li>
-            <li id="separador"><a href="hobbies.html">HOBBIES</a></li>
-            <li id="separador"><a href="mi-pasion.html">PASION</a></li>
-            <li id="separador"><a href="multimedia.html">MULTIMEDIA</a></li>
-            <li id="separador"><a href="playlist/playlist.html">PLAYLIST</a></li>
-            <li id="separador"><a href="trivia.html">TRIVIA</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="nav">
+            <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="ul-nav">
+                <li id="separador"><a href="index.html">HOME</a></li>
+                <li id="separador"><a href="aboutMe.html">ABOUT ME</a></li>
+                <li id="separador"><a href="hobbies.html">HOBBIES</a></li>
+                <li id="separador"><a href="mi-pasion.html">PASION</a></li>
+                <li id="separador"><a href="multimedia.html">MULTIMEDIA</a></li>
+                <li id="separador"><a href="playlist/playlist.html">PLAYLIST</a></li>
+                <li id="separador"><a href="trivia.html">TRIVIA</a></li>
+            </ul>
+        </nav>
 
-    <h1 class="lz">Lautaro Zanino</h1>
+        <h1 class="lz">Lautaro Zanino</h1>
 
-    <div id="image-block">
-        <img src="imagenes/Foto_Boca.jpeg" alt="Foto_Lauti_Boca" width="400" class="foto-perfil">
+        <div id="image-block">
+            <img src="imagenes/Foto_Boca.jpeg" alt="Foto_Lauti_Boca" width="400" class="foto-perfil">
+        </div>
+
+    </header>
+
+    <div class="barra-gif">
+        <a href="https://www.gifsanimados.org/cat-lineas-562.htm">
+            <img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0552.gif" border="0"
+                alt="linea-imagen-animada-0552" /></a>
     </div>
-    
-</header>
 
-<div class="barra-gif">
-    <a href="https://www.gifsanimados.org/cat-lineas-562.htm">
-    <img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0552.gif" 
-    border="0" alt="linea-imagen-animada-0552" /></a>
-</div>
+    <section>
+        <blockquote id="blockquote">
+            "La muerte esta tan segura de vencer que nos da toda una vida de ventaja".
+            <cite><b>La Renga</b></cite>
+        </blockquote>
+    </section>
 
-<section>
-    <blockquote id="blockquote">
-        "La muerte esta tan segura de vencer que nos da toda una vida de ventaja".
-        <cite><b>La Renga</b></cite>
-    </blockquote>
-</section>
+    <section>
+        <p id="descripcion">
+            Interesado en la tecnologia y el aprendizaje continuo.
+            Si queres conocer mas <a href="aboutMe.html">sobre mi</a>, podes navegar por las secciones
+            de esta pagina y descubrir mis hobbies, mi pasion y mas.
+        </p>
+    </section>
 
-<section>
-    <p id="descripcion">
-        Interesado en la tecnologia y el aprendizaje continuo. 
-        Si queres conocer mas <a href="aboutMe.html">sobre mi</a>, podes navegar por las secciones 
-        de esta pagina y descubrir mis hobbies, mi pasion y mas.
-    </p>
-</section>
-
-<footer>
-    <a href="https://www.linkedin.com/in/lautaro-zanino/""><img src="imagenes/LinkedIn_Logo.png" alt="Logo_LinkedIn" width="25px"></a>
-    <a href="https://www.instagram.com/lauti_zanino?igsh=ZmNieHlxMHZqaXFq"><img src="imagenes/Intagram_Logo.png" alt="Intagram_Logo" width="25px"></a>
-    <p class="parrafos">&copy 2026 Lautaro Zanino</p>
-</footer>
+    <footer>
+        <a href="https://www.linkedin.com/in/lautaro-zanino/""><img src=" imagenes/LinkedIn_Logo.png"
+            alt="Logo_LinkedIn" width="25px"></a>
+        <a href="https://www.instagram.com/lauti_zanino?igsh=ZmNieHlxMHZqaXFq"><img src="imagenes/Intagram_Logo.png"
+                alt="Intagram_Logo" width="25px"></a>
+        <p class="parrafos">&copy 2026 Lautaro Zanino</p>
+    </footer>
 
 </body>
+
 </html>
