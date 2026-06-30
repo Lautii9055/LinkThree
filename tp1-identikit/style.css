@@ -557,7 +557,7 @@ nav ul li:hover {
     border-radius: 12px;
     padding: 20px;
     width: 950px;
-    margin: 30px auto;  
+    margin: 30px auto;
 }
 
 .box-trivia p {
@@ -693,10 +693,11 @@ nav ul li:hover {
     margin: 0 auto;
 }
 
-.media, video {
+.media,
+video {
     width: 600px;
     height: 350px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -720,6 +721,7 @@ button:hover {
     background-color: #E0C58F;
     border: 2px solid #F3B229;
 }
+
 /* ==================================================
    RESPONSIVE — MEDIA QUERIES
    Breakpoints: 768px (tablet), 480px (mobile)
@@ -727,58 +729,208 @@ button:hover {
 
 @media (max-width: 768px) {
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.3rem; }
-    h4 { font-size: 1.2rem; }
+    h1 {
+        font-size: 2rem;
+    }
 
-    .ul-nav { gap: 4px; flex-wrap: wrap; height: auto; padding: 8px 0; }
-    nav ul li { padding: 10px 8px; }
-    #descripcion { max-width: 90%; }
-    #blockquote { font-size: large; height: auto; padding: 20px; }
+    h2 {
+        font-size: 1.6rem;
+    }
 
-    .nacionalidad .img-nacionalidad { flex-direction: column; align-items: center; }
-    .nacionalidad .img-nacionalidad img { width: 100%; max-width: 350px; height: auto; }
-    .ciudad .img-ciudad img { width: 100%; height: auto; border-radius: 10px; }
-    .uade { flex-direction: column; }
+    h3 {
+        font-size: 1.3rem;
+    }
 
-    .historia-boca { padding: 10px 24px; }
-    .la-bombonera { flex-direction: column; padding: 24px 16px; gap: 20px; }
-    .img-bombonera img { width: 100%; height: auto; }
+    h4 {
+        font-size: 1.2rem;
+    }
 
-    .xp-table { width: 100%; }
-    .xp-table tr { display: flex; flex-direction: column; align-items: center; }
-    .xp-table td { padding: 8px 0; }
-    .boca-card { width: 90vw; height: auto; aspect-ratio: 4/5; }
+    .ul-nav {
+        gap: 4px;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 8px 0;
+    }
 
-    .spotify-table { width: 100%; }
-    .spotify-table tr { display: flex; flex-direction: column; align-items: center; }
-    .spotify-table td { padding: 8px 0; }
-    .spotify-card { width: 80vw; height: 80vw; max-width: 330px; max-height: 330px; }
+    nav ul li {
+        padding: 10px 8px;
+    }
 
-    .box-trivia { width: 90%; padding: 16px; }
-    .table-tr { flex-direction: column; align-items: center; }
-    .table-tr img { width: 85vw; height: auto; }
-    .gif img { width: 85vw; height: auto; }
+    #descripcion {
+        max-width: 90%;
+    }
 
-    .container { flex-direction: column; height: auto; max-width: 95%; }
-    .aside a { width: 85vw; max-width: 300px; }
-    .media, video { width: 85vw; height: auto; aspect-ratio: 16/9; }
-    .main h1 { font-size: 1.5rem; }
+    #blockquote {
+        font-size: large;
+        height: auto;
+        padding: 20px;
+    }
+
+    .nacionalidad .img-nacionalidad {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nacionalidad .img-nacionalidad img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .ciudad .img-ciudad img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .uade {
+        flex-direction: column;
+    }
+
+    .historia-boca {
+        padding: 10px 24px;
+    }
+
+    .la-bombonera {
+        flex-direction: column;
+        padding: 24px 16px;
+        gap: 20px;
+    }
+
+    .img-bombonera img {
+        width: 100%;
+        height: auto;
+    }
+
+    .xp-table {
+        width: 100%;
+    }
+
+    .xp-table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .xp-table td {
+        padding: 8px 0;
+    }
+
+    .boca-card {
+        width: 90vw;
+        height: auto;
+        aspect-ratio: 4/5;
+    }
+
+    .spotify-table {
+        width: 100%;
+    }
+
+    .spotify-table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .spotify-table td {
+        padding: 8px 0;
+    }
+
+    .spotify-card {
+        width: 80vw;
+        height: 80vw;
+        max-width: 330px;
+        max-height: 330px;
+    }
+
+    .box-trivia {
+        width: 90%;
+        padding: 16px;
+    }
+
+    .table-tr {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table-tr img {
+        width: 85vw;
+        height: auto;
+    }
+
+    .gif img {
+        width: 85vw;
+        height: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+        max-width: 95%;
+    }
+
+    .aside a {
+        width: 85vw;
+        max-width: 300px;
+    }
+
+    .media,
+    video {
+        width: 85vw;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    .main h1 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
 
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.3rem; }
-    h3 { font-size: 1.1rem; }
+    h1 {
+        font-size: 1.6rem;
+    }
 
-    .ul-nav { gap: 2px; }
-    nav ul li { padding: 8px 6px; font-size: 0.85rem; }
-    #blockquote { font-size: medium; }
-    .historia-boca { padding: 10px 14px; }
-    .box-trivia { width: 95%; }
-    .box-trivia p { font-size: 1.1rem; }
-    .copas-libertadores div { flex-wrap: wrap; gap: 12px; }
-    .aside a { width: 90vw; }
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .ul-nav {
+        gap: 2px;
+    }
+
+    nav ul li {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+    }
+
+    #blockquote {
+        font-size: medium;
+    }
+
+    .historia-boca {
+        padding: 10px 14px;
+    }
+
+    .box-trivia {
+        width: 95%;
+    }
+
+    .box-trivia p {
+        font-size: 1.1rem;
+    }
+
+    .copas-libertadores div {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .aside a {
+        width: 90vw;
+    }
 }
