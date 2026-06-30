@@ -1,47 +1,41 @@
 /* ==================================================
-    @IMPORTS
-================================================== */
-
-
-
-/* ==================================================
    FUENTES Y TIPOGRAFÍA
 ================================================== */
 
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
 }
 
 h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: clamp(1.1rem, 3.5vw, 1.8rem);
 }
 
 h4 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 h5 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.3rem);
 }
 
 h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
 p {
@@ -54,10 +48,12 @@ p {
 /* ==================================================
    ESTRUCTURA GENERAL
 ================================================== */
+
 body {
     background-color: #3C507D;
     margin: 0;
     text-align: center;
+    overflow-x: hidden;
 }
 
 article {
@@ -85,6 +81,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .ul-nav {
@@ -102,6 +100,7 @@ footer {
 .ul-nav a {
     text-decoration: none;
     color: #E0C58F;
+    font-size: clamp(0.7rem, 2vw, 1rem);
 }
 
 .ul-nav a:visited,
@@ -121,6 +120,27 @@ nav ul li {
 
 nav ul li:hover {
     border-bottom-color: #E0C58F;
+}
+
+/* HAMBURGUESA */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    margin-left: auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #E0C58F;
+    border-radius: 3px;
+    transition: 0.3s;
 }
 
 /* ==================================================
@@ -154,16 +174,26 @@ nav ul li:hover {
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     background-color: #112250;
     color: #F5F0E9;
     font-style: italic;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
+    height: auto;
     margin-left: 0;
-    font-size: x-large;
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
+    padding: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    word-break: break-word;
 }
 
-
+#blockquote cite {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+}
 
 /* ==================================================
    CLASES GENERALES
@@ -172,6 +202,8 @@ nav ul li:hover {
 .foto-perfil {
     border-radius: 15%;
     border: 4px solid #E0C58F;
+    max-width: 100%;
+    height: auto;
 }
 
 .barra-gif {
@@ -190,7 +222,6 @@ nav ul li:hover {
    SECCIÓN ABOUT ME
 ================================================== */
 
-/* NACIONALIDAD */
 .nacionalidad {
     background-color: #3C507D;
     color: #E0C58F;
@@ -200,13 +231,16 @@ nav ul li:hover {
 
 .nacionalidad .img-nacionalidad {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
 }
 
 .nacionalidad .img-nacionalidad img {
     border-radius: 20px;
     padding: 8px;
-    width: 400px;
-    height: 600px;
+    width: min(400px, 90vw);
+    height: auto;
     object-fit: cover;
 }
 
@@ -215,9 +249,7 @@ nav ul li:hover {
     transition: transform 0.2s ease;
 }
 
-/* CIUDAD */
 .ciudad {
-    background-image: none;
     background-color: #3C507D;
     color: #E0C58F;
     padding: 20px;
@@ -225,21 +257,16 @@ nav ul li:hover {
 }
 
 .ciudad .img-ciudad {
-    display: block;
+    display: flex;
     justify-content: center;
-    position: relative;
 }
 
 .ciudad .img-ciudad img {
-    width: 700px;
-    height: 600px;
+    width: min(700px, 95vw);
+    height: auto;
     border-radius: 15px;
 }
 
-
-
-
-/* ESTUDIOS */
 .estudios {
     background-color: #3C507D;
     color: #E0C58F;
@@ -261,7 +288,6 @@ nav ul li:hover {
     color: #E0C58F;
     border: #E0C58F solid 2px;
     border-radius: 12px;
-    align-items: center;
     margin-bottom: 10px;
     padding: 10px;
     padding-top: 5px;
@@ -270,6 +296,7 @@ nav ul li:hover {
 
 .uade {
     display: flex;
+    flex-wrap: wrap;
     background-color: #112250;
     color: #E0C58F;
     border: #E0C58F solid 2px;
@@ -285,13 +312,12 @@ nav ul li:hover {
 ================================================== */
 
 .txt-hobbies {
-    max-width: 70%;
+    max-width: 90%;
     margin: 0 auto 15px;
     background-color: #112250;
     color: #E0C58F;
     border: #E0C58F solid 2px;
     border-radius: 12px;
-    align-items: center;
     padding: 15px;
     text-align: left;
 }
@@ -307,7 +333,6 @@ nav ul li:hover {
 .hobbies article h3 {
     margin: 5px auto;
 }
-
 
 .h-hobbies {
     background-color: #3C507D;
@@ -325,20 +350,14 @@ nav ul li:hover {
     margin-left: 10px;
 }
 
-/*.h-hobbies:hover {
-    background-color: #E1ECF7;
-    color: #03194D;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}*/
-
 /* ==================================================
    SECCIÓN PASIÓN (BOCA)
 ================================================== */
+
 .bj {
     color: #F3B229;
 }
 
-/* ESCUDOS */
 .escudo {
     padding: 20px;
     display: flex;
@@ -347,15 +366,14 @@ nav ul li:hover {
 }
 
 .escudo img {
-    max-width: 250px;
-    max-height: 350px;
+    max-width: min(250px, 80vw);
+    height: auto;
 }
 
-/* HISTORIA */
 .historia-boca {
     background-color: #F3B229;
     color: #0F1322;
-    padding: 10px 120px;
+    padding: 10px clamp(16px, 8vw, 120px);
     margin: 0;
 }
 
@@ -370,7 +388,6 @@ nav ul li:hover {
     color: #0F1322;
 }
 
-/* LIBERTADORES */
 .copas-libertadores {
     background-color: #0F1322;
     color: #F9D994;
@@ -379,9 +396,12 @@ nav ul li:hover {
 }
 
 .copas-libertadores div {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 20px;
+    justify-items: center;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .img-libertadores {
@@ -389,20 +409,21 @@ nav ul li:hover {
     height: 100px;
 }
 
-/* LA BOMBONERA */
 .la-bombonera {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: #F3B229;
     color: #0F1322;
-    padding: 40px 60px;
+    padding: 40px clamp(16px, 5vw, 60px);
     margin: 0;
     gap: 40px;
 }
 
 .txt-bombonera {
     flex: 1;
+    min-width: 280px;
 }
 
 .img-bombonera {
@@ -411,37 +432,40 @@ nav ul li:hover {
 }
 
 .img-bombonera img {
-    width: 550px;
-    height: 380px;
+    width: min(550px, 90vw);
+    height: auto;
     border: #0F1322 solid 2px;
     border-radius: 12px;
 }
 
-/* LA HINCHADA */
 .la-hinchada {
     background-color: #0F1322;
-    border-radius: 0;
     color: #F9D994;
     padding: 20px;
     margin: 0;
 }
 
+.la-hinchada ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
 .la-hinchada ul li {
     list-style: none;
-    display: inline-block;
-    margin: 10px;
+    display: block;
 }
 
 .la-hinchada .cancion {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
+    display: block;
     border: #F9D994 solid 2px;
-    margin: 0;
     padding: 10px 30px;
     border-radius: 35px;
     color: #F9D994;
     text-decoration: none;
+    text-align: center;
 }
 
 .la-hinchada .cancion:hover {
@@ -450,7 +474,6 @@ nav ul li:hover {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* MI EXPERIENCIA XENEIZE */
 .mi-experiencia-xeneize {
     background-color: #F3B229;
     color: #0F1322;
@@ -483,14 +506,12 @@ nav ul li:hover {
     display: block;
 }
 
-
 /* ==================================================
    SECCIÓN MULTIMEDIA
 ================================================== */
 
 .multimedia-section {
     display: block;
-    align-items: center;
     padding: 20px;
 }
 
@@ -542,7 +563,6 @@ nav ul li:hover {
     color: #E0C58F;
 }
 
-
 /* ==================================================
    SECCIÓN TRIVIA
 ================================================== */
@@ -556,15 +576,21 @@ nav ul li:hover {
     border: 2px solid #112250;
     border-radius: 12px;
     padding: 20px;
-    width: 950px;
+    width: min(950px, 92vw);
     margin: 30px auto;
+    box-sizing: border-box;
 }
 
 .box-trivia p {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     line-height: 1.6;
+    text-align: center;
+}
+
+.box-trivia h2, .box-trivia h3 {
+    text-align: center;
 }
 
 .box-trivia span {
@@ -590,15 +616,16 @@ nav ul li:hover {
 
 .table-tr {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     margin-top: 20px;
 }
 
 .table-tr img {
     background-color: #FFFFFF;
-    width: 340px;
-    height: 250px;
+    width: min(340px, 85vw);
+    height: auto;
     border: 2px solid #112250;
     border-radius: 12px;
     object-fit: cover;
@@ -606,12 +633,13 @@ nav ul li:hover {
 }
 
 .gif {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 .gif img {
-    width: 500px;
-    height: 300px;
+    width: min(500px, 85vw);
+    height: auto;
     border: 2px solid #112250;
     border-radius: 12px;
     margin-bottom: 10px;
@@ -619,8 +647,9 @@ nav ul li:hover {
 
 .btn-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 12px;
     margin-top: 20px;
 }
 
@@ -630,11 +659,13 @@ nav ul li:hover {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     background-color: #F5F0E9;
     border: 2px solid #112250;
     border-radius: 12px;
     max-width: 90%;
-    height: 530px;
+    min-height: 530px;
+    height: auto;
     margin: 20px auto;
 }
 
@@ -652,7 +683,7 @@ nav ul li:hover {
 .aside a:visited {
     display: inline-block;
     box-sizing: border-box;
-    width: 350px;
+    width: min(350px, 85vw);
     text-decoration: none;
     color: #E0C58F;
     background-color: #112250;
@@ -686,17 +717,17 @@ nav ul li:hover {
 
 .main h1 {
     color: #112250;
-    font-size: 2.1rem;
+    font-size: clamp(1.3rem, 4vw, 2.1rem);
 }
 
 .main .media {
     margin: 0 auto;
 }
 
-.media,
-video {
-    width: 600px;
-    height: 350px;
+.media, video {
+    width: min(600px, 85vw);
+    height: auto;
+    aspect-ratio: 16/9;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
@@ -724,37 +755,10 @@ button:hover {
 
 /* ==================================================
    RESPONSIVE — MEDIA QUERIES
+   Solo para lo que no se puede resolver con clamp/min
 ================================================== */
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    padding: 10px 16px;
-    background: none;
-    border: none;
-    margin-left: auto;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #E0C58F;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
 @media (max-width: 768px) {
-
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-    h3 { font-size: 1.2rem; }
-    h4 { font-size: 1.1rem; }
-    p  { font-size: 0.95rem; }
-
-    body { overflow-x: hidden; }
 
     header, section, article, footer {
         padding-left: 16px;
@@ -766,14 +770,12 @@ button:hover {
     .hamburger { display: flex; }
 
     .nav {
-        width: 100%;
         height: auto;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: flex-end;
-        padding: 0;
-        box-sizing: border-box;
+        padding: 4px 0;
     }
 
     .ul-nav {
@@ -790,88 +792,19 @@ button:hover {
     .ul-nav li {
         width: 100%;
         border-bottom: 1px solid #1a3060;
-        padding: 12px 16px;
+        padding: 14px 16px;
         box-sizing: border-box;
     }
 
-    nav ul li:hover {
-        border-bottom-color: #E0C58F;
-    }
-
-    /* BLOCKQUOTE */
-    #blockquote {
-        font-size: 1rem;
-        height: auto;
-        padding: 20px 16px;
-        text-align: center;
-        word-break: break-word;
-        hyphens: auto;
-    }
-
-    #blockquote cite {
-        display: block;
-        margin-top: 8px;
-    }
-
-    #descripcion { max-width: 100%; }
-
-    .foto-perfil {
-        width: 100% !important;
-        max-width: 320px;
-        height: auto !important;
-    }
-
     /* ABOUT ME */
-    .nacionalidad .img-nacionalidad {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
+    #descripcion { max-width: 95%; }
 
-    .nacionalidad .img-nacionalidad img {
-        width: 100%;
-        max-width: 340px;
-        height: auto;
-    }
-
-    .ciudad .img-ciudad img {
-        width: 100%;
-        height: auto;
-    }
-
-    .uade { flex-direction: column; }
-
-    /* PASIÓN — HISTORIA */
-    .historia-boca { padding: 16px; }
-
-    /* PASIÓN — COPAS LIBERTADORES 2x3 */
+    /* PASIÓN — COPAS 2 columnas en mobile */
     .copas-libertadores div {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        justify-items: center;
-        padding: 0 16px;
     }
 
-    .img-libertadores {
-        width: 80px;
-        height: 80px;
-    }
-
-    /* PASIÓN — BOMBONERA */
-    .la-bombonera {
-        flex-direction: column;
-        padding: 24px 16px;
-        gap: 20px;
-    }
-
-    .img-bombonera img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    /* PASIÓN — EXPERIENCIA XENEIZE */
+    /* PASIÓN — EXPERIENCIA XENEIZE una por fila */
     .xp-table, .xp-table tbody, .xp-table tr {
         display: flex;
         flex-direction: column;
@@ -889,32 +822,19 @@ button:hover {
         aspect-ratio: 4/3;
     }
 
-    .boca-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* HINCHADA — botones iguales */
+    /* HINCHADA — botones iguales en columna */
     .la-hinchada ul {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0;
     }
 
     .la-hinchada ul li {
-        display: block;
         width: 85%;
-        margin: 6px 0;
     }
 
     .la-hinchada .cancion {
-        display: block;
         width: 100%;
-        text-align: center;
         padding: 12px 16px;
-        box-sizing: border-box;
     }
 
     /* MULTIMEDIA */
@@ -934,76 +854,6 @@ button:hover {
         max-height: 320px;
     }
 
-    /* TRIVIA */
-    .box-trivia {
-        width: 90%;
-        padding: 20px;
-        box-sizing: border-box;
-        margin: 20px auto;
-    }
-
-    .box-trivia p { font-size: 1rem; text-align: center; }
-    .box-trivia h2, .box-trivia h3 { text-align: center; }
-
-    .table-tr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-
-    .table-tr td {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-    .table-tr img {
-        width: 85vw;
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .gif {
-        display: flex;
-        justify-content: center;
-    }
-
-    .gif img {
-        width: 85vw;
-        height: auto;
-    }
-
-    .btn-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
     /* PLAYLIST */
-    .container {
-        flex-direction: column;
-        height: auto;
-        max-width: 98%;
-    }
-
-    .aside a { width: 85vw; max-width: 300px; }
-
-    .media, video {
-        width: 85vw;
-        height: auto;
-        aspect-ratio: 16/9;
-    }
-
-    .main h1 { font-size: 1.4rem; }
-}
-
-@media (max-width: 480px) {
-    h1 { font-size: 1.5rem; }
-    h2 { font-size: 1.2rem; }
-    h3 { font-size: 1.1rem; }
-    .img-libertadores { width: 65px; height: 65px; }
-    .box-trivia { width: 94%; }
-    .aside a { width: 90vw; }
-    .la-hinchada ul li { width: 92%; }
+    .container { flex-direction: column; }
 }
