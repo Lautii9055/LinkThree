@@ -776,7 +776,7 @@ button:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: flex-end;
-        padding: 4px 0;
+        padding: 4px 8px;
     }
 
     .ul-nav {
