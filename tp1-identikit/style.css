@@ -724,71 +724,116 @@ button:hover {
 
 /* ==================================================
    RESPONSIVE — MEDIA QUERIES
-   Breakpoints: 768px (tablet), 480px (mobile)
 ================================================== */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+    background: none;
+    border: none;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #E0C58F;
+    border-radius: 3px;
+    transition: 0.3s;
+}
 
 @media (max-width: 768px) {
 
-    h1 {
-        font-size: 2rem;
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.2rem; }
+    h4 { font-size: 1.1rem; }
+    p  { font-size: 0.95rem; }
+
+    body { overflow-x: hidden; }
+
+    header, section, article, footer {
+        padding-left: 16px;
+        padding-right: 16px;
+        box-sizing: border-box;
     }
 
-    h2 {
-        font-size: 1.6rem;
-    }
+    .hamburger { display: flex; }
 
-    h3 {
-        font-size: 1.3rem;
-    }
-
-    h4 {
-        font-size: 1.2rem;
+    .nav {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 16px;
     }
 
     .ul-nav {
-        gap: 4px;
-        flex-wrap: wrap;
+        display: none;
+        flex-direction: column;
+        width: 100%;
         height: auto;
+        gap: 0;
         padding: 8px 0;
     }
 
-    nav ul li {
-        padding: 10px 8px;
-    }
+    .ul-nav.open { display: flex; }
 
-    #descripcion {
-        max-width: 90%;
+    .ul-nav li {
+        width: 100%;
+        border-bottom: 1px solid #1a3060;
+        padding: 12px 8px;
     }
 
     #blockquote {
-        font-size: large;
+        font-size: 1rem;
         height: auto;
-        padding: 20px;
+        padding: 20px 16px;
+        text-align: center;
+    }
+
+    #descripcion { max-width: 100%; }
+
+    .foto-perfil {
+        width: 100% !important;
+        max-width: 320px;
+        height: auto !important;
     }
 
     .nacionalidad .img-nacionalidad {
         flex-direction: column;
         align-items: center;
+        gap: 16px;
     }
 
     .nacionalidad .img-nacionalidad img {
         width: 100%;
-        max-width: 350px;
+        max-width: 340px;
         height: auto;
     }
 
     .ciudad .img-ciudad img {
         width: 100%;
         height: auto;
-        border-radius: 10px;
     }
 
-    .uade {
-        flex-direction: column;
+    .uade { flex-direction: column; }
+
+    .historia-boca { padding: 16px; }
+
+    .copas-libertadores div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        justify-items: center;
+        padding: 0 16px;
     }
 
-    .historia-boca {
-        padding: 10px 24px;
+    .img-libertadores {
+        width: 80px;
+        height: 80px;
     }
 
     .la-bombonera {
@@ -800,137 +845,83 @@ button:hover {
     .img-bombonera img {
         width: 100%;
         height: auto;
+        border-radius: 10px;
     }
 
-    .xp-table {
+    .xp-table, .xp-table tbody, .xp-table tr {
+        display: flex;
+        flex-direction: column;
         width: 100%;
     }
 
-    .xp-table tr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .xp-table td {
-        padding: 8px 0;
-    }
+    .xp-table td { width: 100%; padding: 8px 0; }
 
     .boca-card {
-        width: 90vw;
-        height: auto;
-        aspect-ratio: 4/5;
-    }
-
-    .spotify-table {
         width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
     }
 
-    .spotify-table tr {
+    .boca-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .spotify-table, .spotify-table tbody, .spotify-table tr {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
-    .spotify-table td {
-        padding: 8px 0;
-    }
+    .spotify-table td { padding: 8px 0; }
 
     .spotify-card {
-        width: 80vw;
-        height: 80vw;
-        max-width: 330px;
-        max-height: 330px;
+        width: 85vw;
+        height: 85vw;
+        max-width: 320px;
+        max-height: 320px;
     }
 
     .box-trivia {
-        width: 90%;
+        width: 95%;
         padding: 16px;
+        box-sizing: border-box;
     }
+
+    .box-trivia p { font-size: 1rem; }
 
     .table-tr {
         flex-direction: column;
         align-items: center;
     }
 
-    .table-tr img {
-        width: 85vw;
-        height: auto;
-    }
-
-    .gif img {
-        width: 85vw;
-        height: auto;
-    }
+    .table-tr img { width: 90vw; height: auto; }
+    .gif img { width: 85vw; height: auto; }
 
     .container {
         flex-direction: column;
         height: auto;
-        max-width: 95%;
+        max-width: 98%;
     }
 
-    .aside a {
-        width: 85vw;
-        max-width: 300px;
-    }
+    .aside a { width: 85vw; max-width: 300px; }
 
-    .media,
-    video {
+    .media, video {
         width: 85vw;
         height: auto;
         aspect-ratio: 16/9;
     }
 
-    .main h1 {
-        font-size: 1.5rem;
-    }
+    .main h1 { font-size: 1.4rem; }
 }
 
 @media (max-width: 480px) {
-
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    h2 {
-        font-size: 1.3rem;
-    }
-
-    h3 {
-        font-size: 1.1rem;
-    }
-
-    .ul-nav {
-        gap: 2px;
-    }
-
-    nav ul li {
-        padding: 8px 6px;
-        font-size: 0.85rem;
-    }
-
-    #blockquote {
-        font-size: medium;
-    }
-
-    .historia-boca {
-        padding: 10px 14px;
-    }
-
-    .box-trivia {
-        width: 95%;
-    }
-
-    .box-trivia p {
-        font-size: 1.1rem;
-    }
-
-    .copas-libertadores div {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .aside a {
-        width: 90vw;
-    }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    h3 { font-size: 1.1rem; }
+    .img-libertadores { width: 65px; height: 65px; }
+    .box-trivia { width: 98%; }
+    .aside a { width: 90vw; }
 }
