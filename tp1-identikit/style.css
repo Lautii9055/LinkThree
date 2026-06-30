@@ -487,9 +487,9 @@ nav ul li:hover {
 }
 
 .xp-table td {
-    padding: 20px 15px;
+    padding: 0;
     vertical-align: top;
-    background-color: #112250;
+    background-color: transparent;
 }
 
 .boca-card {
@@ -497,7 +497,8 @@ nav ul li:hover {
     width: 450px;
     height: 550px;
     overflow: hidden;
-    border: 3px solid #0F1322;
+    border: 4px solid #000000;
+    border-radius: 8px;
 }
 
 .boca-card img {
@@ -590,7 +591,8 @@ nav ul li:hover {
     text-align: center;
 }
 
-.box-trivia h2, .box-trivia h3 {
+.box-trivia h2,
+.box-trivia h3 {
     text-align: center;
 }
 
@@ -725,7 +727,8 @@ nav ul li:hover {
     margin: 0 auto;
 }
 
-.media, video {
+.media,
+video {
     width: min(600px, 85vw);
     height: auto;
     aspect-ratio: 16/9;
@@ -761,14 +764,19 @@ button:hover {
 
 @media (max-width: 768px) {
 
-    header, section, article, footer {
+    header,
+    section,
+    article,
+    footer {
         padding-left: 16px;
         padding-right: 16px;
         box-sizing: border-box;
     }
 
     /* NAVBAR HAMBURGUESA */
-    .hamburger { display: flex; }
+    .hamburger {
+        display: flex;
+    }
 
     .nav {
         height: auto;
@@ -788,7 +796,9 @@ button:hover {
         padding: 8px 0;
     }
 
-    .ul-nav.open { display: flex; }
+    .ul-nav.open {
+        display: flex;
+    }
 
     .ul-nav li {
         width: 100%;
@@ -798,7 +808,9 @@ button:hover {
     }
 
     /* ABOUT ME */
-    #descripcion { max-width: 95%; }
+    #descripcion {
+        max-width: 95%;
+    }
 
     /* PASIÓN — COPAS 2 columnas en mobile */
     .copas-libertadores div {
@@ -806,7 +818,9 @@ button:hover {
     }
 
     /* PASIÓN — EXPERIENCIA XENEIZE una por fila */
-    .xp-table, .xp-table tbody, .xp-table tr {
+    .xp-table,
+    .xp-table tbody,
+    .xp-table tr {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -814,13 +828,17 @@ button:hover {
 
     .xp-table td {
         width: 100%;
-        padding: 24px 0;
+        padding: 0;
+        border: 4px solid #000000;
+        margin: 8px;
     }
 
     .boca-card {
         width: 100%;
-        height: auto;
+        height: 100%;
+        padding-top: 0;
         aspect-ratio: 4/3;
+
     }
 
     /* HINCHADA — botones iguales en columna */
@@ -839,14 +857,18 @@ button:hover {
     }
 
     /* MULTIMEDIA */
-    .spotify-table, .spotify-table tbody, .spotify-table tr {
+    .spotify-table,
+    .spotify-table tbody,
+    .spotify-table tr {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
 
-    .spotify-table td { padding: 8px 0; }
+    .spotify-table td {
+        padding: 8px 0;
+    }
 
     .spotify-card {
         width: 85vw;
@@ -856,5 +878,7 @@ button:hover {
     }
 
     /* PLAYLIST */
-    .container { flex-direction: column; }
+    .container {
+        flex-direction: column;
+    }
 }
