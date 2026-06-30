@@ -198,35 +198,85 @@ nav li:hover {
 
 @media (max-width: 768px) {
     main {
-        width: 90%;
-        margin-top: 16px;
-    }
-
-    p {
-        width: 90%;
+        width: 85%;
+        margin-top: 20px;
+        border-radius: 8px;
     }
 
     h1 {
         font-size: 1.8em;
     }
 
+    p {
+        width: 90%;
+        font-size: 1em;
+    }
+
     nav ul {
-        width: 92%;
+        width: 88%;
+        padding-bottom: 16px;
+    }
+
+    nav li {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    #header-logo {
+        width: 100px;
+        height: 100px;
     }
 }
 
 @media (max-width: 480px) {
     main {
-        width: 95%;
-        margin-top: 10px;
+        width: 88%;
+        margin-top: 16px;
+        border-radius: 8px;
     }
 
     h1 {
         font-size: 1.5em;
     }
 
+    p {
+        width: 90%;
+        font-size: 0.95em;
+    }
+
+    nav ul {
+        width: 88%;
+        padding-bottom: 16px;
+    }
+
     nav li {
-        height: 45px;
+        height: 48px;
+        margin-top: 10px;
+    }
+
+    #header-logo {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 360px) {
+    main {
+        width: 90%;
+        margin-top: 12px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 0.9em;
+        width: 92%;
+    }
+
+    nav ul {
+        width: 90%;
     }
 }
 
