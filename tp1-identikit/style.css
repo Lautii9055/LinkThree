@@ -79,10 +79,11 @@ footer {
     background-color: #112250;
     height: 60px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    padding-right: 8px;
 }
 
 .ul-nav {
@@ -486,7 +487,7 @@ nav ul li:hover {
 }
 
 .xp-table td {
-    padding: 15px;
+    padding: 20px 15px;
     vertical-align: top;
     background-color: #112250;
 }
